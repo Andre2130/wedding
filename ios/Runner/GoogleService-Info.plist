@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>360715567438-5mprfahkdgipn1ck1t00mr8vl6imi0mh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.360715567438-5mprfahkdgipn1ck1t00mr8vl6imi0mh</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>360715567438-979un1b0p3u0i8j5fp1v6k9su48ji8cn.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBLe64maRx0jE_XBwKGpVinluCK39vgU3A</string>
+	<key>GCM_SENDER_ID</key>
+	<string>360715567438</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.flutterflow.weddingapp</string>
+	<key>PROJECT_ID</key>
+	<string>letslinkdemo-6c84a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>letslinkdemo-6c84a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:360715567438:ios:cfb946db47c875ae7f9e1f</string>
+</dict>
+</plist>
