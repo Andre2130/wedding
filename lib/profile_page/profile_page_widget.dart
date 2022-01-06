@@ -195,7 +195,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                         contentPadding:
                             EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
                       ),
-                      style: FlutterFlowTheme.subtitle1,
+                      style: FlutterFlowTheme.subtitle1.override(
+                        fontFamily: 'Cormorant Garamond',
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                 ),
@@ -236,7 +239,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                       contentPadding:
                           EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
                     ),
-                    style: FlutterFlowTheme.subtitle1,
+                    style: FlutterFlowTheme.subtitle1.override(
+                      fontFamily: 'Cormorant Garamond',
+                      color: Colors.black,
+                    ),
                   ),
                 ),
                 Align(

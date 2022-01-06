@@ -1,6 +1,7 @@
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -265,11 +266,22 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           ),
                           Align(
                             alignment: AlignmentDirectional(0, 0),
-                            child: Image.asset(
-                              'assets/images/caleb-de-marco-iovfeiUiMjo-unsplash.jpg',
-                              width: 160,
-                              height: 100,
-                              fit: BoxFit.cover,
+                            child: InkWell(
+                              onTap: () async {
+                                await Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        NavBarPage(initialPage: 'eventsPage'),
+                                  ),
+                                );
+                              },
+                              child: Image.asset(
+                                'assets/images/caleb-de-marco-iovfeiUiMjo-unsplash.jpg',
+                                width: 160,
+                                height: 100,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                           Align(

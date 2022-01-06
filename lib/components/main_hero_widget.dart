@@ -53,7 +53,7 @@ class _MainHeroWidgetState extends State<MainHeroWidget>
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: Image.asset(
-          'assets/images/allison-heine-_5_85Zqqsm4-unsplash.jpg',
+          'assets/images/Screen_Shot_2021-12-29_at_6.44.26_PM.png',
           width: 100,
           height: 100,
           fit: BoxFit.cover,

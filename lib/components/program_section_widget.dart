@@ -48,7 +48,7 @@ class _ProgramSectionWidgetState extends State<ProgramSectionWidget> {
                     widget.body,
                     style: FlutterFlowTheme.bodyText1.override(
                       fontFamily: 'Cormorant Garamond',
-                      color: FlutterFlowTheme.darkText,
+                      color: Colors.black,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
