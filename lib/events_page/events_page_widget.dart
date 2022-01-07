@@ -53,7 +53,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
           ),
           backgroundColor: Colors.black,
           floatingActionButton: Visibility(
-            visible: currentUserDocument?.profileComplete ?? true,
+            visible: currentUserEmailVerified ?? true,
             child: AuthUserStreamWidget(
               child: FloatingActionButton(
                 onPressed: () async {
