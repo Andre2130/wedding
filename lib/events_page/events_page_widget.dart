@@ -52,29 +52,24 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
             elevation: 0,
           ),
           backgroundColor: Colors.black,
-          floatingActionButton: Visibility(
-            visible: currentUserEmailVerified ?? true,
-            child: AuthUserStreamWidget(
-              child: FloatingActionButton(
-                onPressed: () async {
-                  await Navigator.push(
-                    context,
-                    PageTransition(
-                      type: PageTransitionType.bottomToTop,
-                      duration: Duration(milliseconds: 250),
-                      reverseDuration: Duration(milliseconds: 250),
-                      child: CreateEventWidget(),
-                    ),
-                  );
-                },
-                backgroundColor: FlutterFlowTheme.primaryColor,
-                elevation: 8,
-                child: Icon(
-                  Icons.add_rounded,
-                  color: FlutterFlowTheme.lightText,
-                  size: 32,
+          floatingActionButton: FloatingActionButton(
+            onPressed: () async {
+              await Navigator.push(
+                context,
+                PageTransition(
+                  type: PageTransitionType.bottomToTop,
+                  duration: Duration(milliseconds: 250),
+                  reverseDuration: Duration(milliseconds: 250),
+                  child: CreateEventWidget(),
                 ),
-              ),
+              );
+            },
+            backgroundColor: FlutterFlowTheme.primaryColor,
+            elevation: 8,
+            child: Icon(
+              Icons.add_rounded,
+              color: FlutterFlowTheme.lightText,
+              size: 32,
             ),
           ),
           body: SafeArea(
