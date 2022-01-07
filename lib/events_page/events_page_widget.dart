@@ -53,25 +53,27 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
           ),
           backgroundColor: Colors.black,
           floatingActionButton: Visibility(
-            visible: eventsPageGuestsRecord.profileComplete ?? true,
-            child: FloatingActionButton(
-              onPressed: () async {
-                await Navigator.push(
-                  context,
-                  PageTransition(
-                    type: PageTransitionType.bottomToTop,
-                    duration: Duration(milliseconds: 250),
-                    reverseDuration: Duration(milliseconds: 250),
-                    child: CreateEventWidget(),
-                  ),
-                );
-              },
-              backgroundColor: FlutterFlowTheme.primaryColor,
-              elevation: 8,
-              child: Icon(
-                Icons.add_rounded,
-                color: FlutterFlowTheme.lightText,
-                size: 32,
+            visible: currentUserDocument?.profileComplete ?? true,
+            child: AuthUserStreamWidget(
+              child: FloatingActionButton(
+                onPressed: () async {
+                  await Navigator.push(
+                    context,
+                    PageTransition(
+                      type: PageTransitionType.bottomToTop,
+                      duration: Duration(milliseconds: 250),
+                      reverseDuration: Duration(milliseconds: 250),
+                      child: CreateEventWidget(),
+                    ),
+                  );
+                },
+                backgroundColor: FlutterFlowTheme.primaryColor,
+                elevation: 8,
+                child: Icon(
+                  Icons.add_rounded,
+                  color: FlutterFlowTheme.lightText,
+                  size: 32,
+                ),
               ),
             ),
           ),
@@ -101,6 +103,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                     child: Image.asset(
                       'assets/images/Empty_noEvents@2x.png',
                       width: MediaQuery.of(context).size.width * 0.8,
+                      fit: BoxFit.cover,
                     ),
                   );
                 }
