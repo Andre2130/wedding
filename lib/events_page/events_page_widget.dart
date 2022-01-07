@@ -53,7 +53,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
           ),
           backgroundColor: Colors.black,
           floatingActionButton: Visibility(
-            visible: eventsPageGuestsRecord.admin ?? true,
+            visible: eventsPageGuestsRecord.profileComplete ?? true,
             child: FloatingActionButton(
               onPressed: () async {
                 await Navigator.push(
