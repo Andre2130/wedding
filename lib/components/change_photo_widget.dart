@@ -28,16 +28,32 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
       duration: 600,
       delay: 350,
       fadeIn: true,
-      slideOffset: Offset(0, -50),
-      scale: 0.6,
+      initialState: AnimationState(
+        offset: Offset(0, 50),
+        scale: 0.6,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
     ),
     'buttonOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       duration: 600,
       delay: 350,
       fadeIn: true,
-      slideOffset: Offset(0, -50),
-      scale: 0.6,
+      initialState: AnimationState(
+        offset: Offset(0, 50),
+        scale: 0.6,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
     ),
   };
 

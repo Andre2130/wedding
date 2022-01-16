@@ -8,6 +8,7 @@ import 'backend/push_notifications/push_notifications_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:wedding/splash_screen_welcome/splash_screen_welcome_widget.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'home_page/home_page_widget.dart';
 import 'social_feed/social_feed_widget.dart';
@@ -107,9 +108,18 @@ class _NavBarPageState extends State<NavBarPage> {
       'messagesPage': MessagesPageWidget(),
       'profilePage': ProfilePageWidget(),
     };
+    final currentIndex = tabs.keys.toList().indexOf(_currentPage);
     return Scaffold(
       body: tabs[_currentPage],
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex,
+        onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
+        backgroundColor: FlutterFlowTheme.tertiaryColor,
+        selectedItemColor: Color(0xFFEEB111),
+        unselectedItemColor: FlutterFlowTheme.lightText,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
@@ -160,14 +170,6 @@ class _NavBarPageState extends State<NavBarPage> {
             tooltip: '',
           )
         ],
-        backgroundColor: FlutterFlowTheme.tertiaryColor,
-        currentIndex: tabs.keys.toList().indexOf(_currentPage),
-        selectedItemColor: Color(0xFFEEB111),
-        unselectedItemColor: FlutterFlowTheme.lightText,
-        onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        type: BottomNavigationBarType.fixed,
       ),
     );
   }

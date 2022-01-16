@@ -6,6 +6,7 @@ import 'social_posts_record.dart';
 import 'comments_record.dart';
 import 'chats_record.dart';
 import 'chat_messages_record.dart';
+import 'city_record.dart';
 
 import 'index.dart';
 
@@ -22,6 +23,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   CommentsRecord,
   ChatsRecord,
   ChatMessagesRecord,
+  CityRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

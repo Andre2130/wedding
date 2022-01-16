@@ -29,28 +29,56 @@ class _SplashScreenLoginWidgetState extends State<SplashScreenLoginWidget>
       trigger: AnimationTrigger.onPageLoad,
       duration: 600,
       fadeIn: true,
+      initialState: AnimationState(
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        opacity: 1,
+      ),
     ),
     'rowOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       duration: 600,
       delay: 90,
       fadeIn: true,
-      slideOffset: Offset(0, -39),
+      initialState: AnimationState(
+        offset: Offset(0, 39),
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        opacity: 1,
+      ),
     ),
     'rowOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       duration: 600,
       delay: 210,
       fadeIn: true,
-      slideOffset: Offset(0, -82),
+      initialState: AnimationState(
+        offset: Offset(0, 82),
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        opacity: 1,
+      ),
     ),
     'buttonOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       duration: 600,
       delay: 350,
       fadeIn: true,
-      slideOffset: Offset(0, -50),
-      scale: 0.6,
+      initialState: AnimationState(
+        offset: Offset(0, 50),
+        scale: 0.6,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
     ),
   };
 

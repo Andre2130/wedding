@@ -27,8 +27,16 @@ class _RsvpModalWidgetState extends State<RsvpModalWidget>
       duration: 600,
       delay: 350,
       fadeIn: true,
-      slideOffset: Offset(0, -50),
-      scale: 0.6,
+      initialState: AnimationState(
+        offset: Offset(0, 50),
+        scale: 0.6,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
     ),
   };
 

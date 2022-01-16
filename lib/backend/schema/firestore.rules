@@ -38,5 +38,11 @@ service cloud.firestore {
     match /comments/{id} {
       allow read, write: if true;
     }
+
+    // WARNING! ONLY FOR TEST MODE: Make sure you properly configure the
+    // security rules for this collection before publishing your app.
+    match /city/{id} {
+      allow read, write: if true;
+    }
   }
 }

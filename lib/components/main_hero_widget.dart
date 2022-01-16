@@ -19,8 +19,16 @@ class _MainHeroWidgetState extends State<MainHeroWidget>
       trigger: AnimationTrigger.onPageLoad,
       duration: 600,
       fadeIn: true,
-      slideOffset: Offset(0, -40),
-      scale: 0.8,
+      initialState: AnimationState(
+        offset: Offset(0, 40),
+        scale: 0.8,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
     ),
   };
 

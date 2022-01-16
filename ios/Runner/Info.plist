@@ -22,22 +22,21 @@
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
 	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>com.googleusercontent.apps.360715567438-5mprfahkdgipn1ck1t00mr8vl6imi0mh</string>
-        
-			</array>
-		</dict>
-	</array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>com.googleusercontent.apps.360715567438-5mprfahkdgipn1ck1t00mr8vl6imi0mh</string>
+                
+            </array>
+        </dict>
+    </array>
 
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-
 
 	<key>NSCameraUsageDescription</key>
 	<string>In order to take a picture or video, this app requires permission to access the camera.</string>

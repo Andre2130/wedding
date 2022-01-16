@@ -2,6 +2,7 @@ import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../main.dart';
+import '../main_map/main_map_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,41 +24,82 @@ class _HomePageWidgetState extends State<HomePageWidget>
       trigger: AnimationTrigger.onPageLoad,
       duration: 600,
       fadeIn: true,
+      initialState: AnimationState(
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        opacity: 1,
+      ),
     ),
     'rowOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       duration: 600,
       delay: 90,
       fadeIn: true,
-      slideOffset: Offset(0, -39),
+      initialState: AnimationState(
+        offset: Offset(0, 39),
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        opacity: 1,
+      ),
     ),
     'rowOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       duration: 600,
       delay: 200,
       fadeIn: true,
-      slideOffset: Offset(0, -41),
+      initialState: AnimationState(
+        offset: Offset(0, 41),
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        opacity: 1,
+      ),
     ),
     'rowOnPageLoadAnimation3': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       duration: 600,
       delay: 210,
       fadeIn: true,
-      slideOffset: Offset(0, -82),
+      initialState: AnimationState(
+        offset: Offset(0, 82),
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        opacity: 1,
+      ),
     ),
     'rowOnPageLoadAnimation4': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       duration: 600,
       delay: 210,
       fadeIn: true,
-      slideOffset: Offset(0, -82),
+      initialState: AnimationState(
+        offset: Offset(0, 82),
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        opacity: 1,
+      ),
     ),
     'rowOnPageLoadAnimation5': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       duration: 600,
       delay: 210,
       fadeIn: true,
-      slideOffset: Offset(0, -82),
+      initialState: AnimationState(
+        offset: Offset(0, 82),
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        opacity: 1,
+      ),
     ),
   };
 
@@ -115,6 +157,15 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   Stack(
                                     children: [
                                       Align(
+                                        alignment: AlignmentDirectional(0, 0),
+                                        child: Image.asset(
+                                          'assets/images/pien-muller-Fh-Q-xfdh_o-unsplash.jpg',
+                                          width: double.infinity,
+                                          height: double.infinity,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Align(
                                         alignment: AlignmentDirectional(-67, 0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -136,26 +187,28 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           ],
                                         ),
                                       ),
-                                      Align(
-                                        alignment: AlignmentDirectional(0, 0),
-                                        child: Image.asset(
-                                          'assets/images/pien-muller-Fh-Q-xfdh_o-unsplash.jpg',
-                                          width: double.infinity,
-                                          height: double.infinity,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
                                     ],
                                   ),
                                   Stack(
                                     children: [
                                       Align(
                                         alignment: AlignmentDirectional(0, 0),
-                                        child: Image.asset(
-                                          'assets/images/boxed-water-is-better-zQNDCje06VM-unsplash.jpg',
-                                          width: double.infinity,
-                                          height: double.infinity,
-                                          fit: BoxFit.cover,
+                                        child: InkWell(
+                                          onTap: () async {
+                                            await Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    MainMapWidget(),
+                                              ),
+                                            );
+                                          },
+                                          child: Image.asset(
+                                            'assets/images/boxed-water-is-better-zQNDCje06VM-unsplash.jpg',
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
                                       ),
                                     ],

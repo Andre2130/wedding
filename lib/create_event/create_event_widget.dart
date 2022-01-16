@@ -38,8 +38,16 @@ class _CreateEventWidgetState extends State<CreateEventWidget>
       duration: 600,
       delay: 350,
       fadeIn: true,
-      slideOffset: Offset(0, -50),
-      scale: 0.6,
+      initialState: AnimationState(
+        offset: Offset(0, 50),
+        scale: 0.6,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
     ),
   };
 
@@ -135,7 +143,7 @@ class _CreateEventWidgetState extends State<CreateEventWidget>
                       image: DecorationImage(
                         fit: BoxFit.contain,
                         image: Image.asset(
-                          'assets/images/emptyPhoto@2x.png',
+                          'assets/images/Screen_Shot_2021-06-04_at_9.38.16_AM.png',
                         ).image,
                       ),
                       boxShadow: [
