@@ -11,6 +11,7 @@ import 'schema/comments_record.dart';
 import 'schema/chats_record.dart';
 import 'schema/chat_messages_record.dart';
 import 'schema/city_record.dart';
+import 'schema/categories_record.dart';
 import 'schema/serializers.dart';
 
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -24,6 +25,7 @@ export 'schema/comments_record.dart';
 export 'schema/chats_record.dart';
 export 'schema/chat_messages_record.dart';
 export 'schema/city_record.dart';
+export 'schema/categories_record.dart';
 
 /// Functions to query GuestsRecords (as a Stream and as a Future).
 Stream<List<GuestsRecord>> queryGuestsRecord(
@@ -131,6 +133,22 @@ Future<List<CityRecord>> queryCityRecordOnce(
         int limit = -1,
         bool singleRecord = false}) =>
     queryCollectionOnce(CityRecord.collection, CityRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+/// Functions to query CategoriesRecords (as a Stream and as a Future).
+Stream<List<CategoriesRecord>> queryCategoriesRecord(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollection(CategoriesRecord.collection, CategoriesRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+Future<List<CategoriesRecord>> queryCategoriesRecordOnce(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollectionOnce(
+        CategoriesRecord.collection, CategoriesRecord.serializer,
         queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
 
 Stream<List<T>> queryCollection<T>(

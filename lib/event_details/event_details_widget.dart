@@ -118,7 +118,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                         ),
                       ),
                       Text(
-                        widget.eventDetails.eventLocation,
+                        widget.eventDetails.eventLocationName,
                         style: FlutterFlowTheme.subtitle2,
                       ),
                     ],

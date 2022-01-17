@@ -366,10 +366,9 @@ class _CreateEventWidgetState extends State<CreateEventWidget>
                   onPressed: () async {
                     final eventsCreateData = createEventsRecordData(
                       eventName: textController1.text,
-                      eventTime: datePicked,
-                      eventLocation: locationAddressController.text,
                       eventPhoto: uploadedFileUrl,
                       eventLocationName: locationAddressController.text,
+                      eventTime: datePicked,
                     );
                     final eventsRecordReference = EventsRecord.collection.doc();
                     await eventsRecordReference.set(eventsCreateData);

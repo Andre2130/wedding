@@ -173,7 +173,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                             ),
                                             Text(
                                               listViewEventsRecord
-                                                  .eventLocation,
+                                                  .eventLocationName,
                                               style: FlutterFlowTheme.subtitle2,
                                             ),
                                           ],

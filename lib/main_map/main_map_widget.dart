@@ -25,47 +25,76 @@ class _MainMapWidgetState extends State<MainMapWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: scaffoldKey,
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.primaryColor,
-        automaticallyImplyLeading: true,
-        title: Text(
-          'LetsLink',
-          style: FlutterFlowTheme.bodyText1,
-        ),
-        actions: [],
-        centerTitle: true,
-        elevation: 4,
+    return StreamBuilder<List<EventsRecord>>(
+      stream: queryEventsRecord(
+        singleRecord: true,
       ),
-      backgroundColor: Colors.black,
-      body: SafeArea(
-        child: FlutterFlowGoogleMap(
-          controller: googleMapsController,
-          onCameraIdle: (latLng) => googleMapsCenter = latLng,
-          initialLocation: googleMapsCenter ??= widget.city.location,
-          markers: [
-            if (widget.city != null)
-              FlutterFlowMarker(
-                widget.city.reference.path,
-                widget.city.location,
+      builder: (context, snapshot) {
+        // Customize what your widget looks like when it's loading.
+        if (!snapshot.hasData) {
+          return Center(
+            child: SizedBox(
+              width: 50,
+              height: 50,
+              child: SpinKitPumpingHeart(
+                color: Color(0xFFEEB111),
+                size: 50,
               ),
-          ],
-          markerColor: GoogleMarkerColor.violet,
-          mapType: MapType.normal,
-          style: GoogleMapStyle.standard,
-          initialZoom: 14,
-          allowInteraction: true,
-          allowZoom: true,
-          showZoomControls: true,
-          showLocation: true,
-          showCompass: false,
-          showMapToolbar: false,
-          showTraffic: false,
-          centerMapOnMarkerTap: true,
-        ),
-      ),
+            ),
+          );
+        }
+        List<EventsRecord> mainMapEventsRecordList = snapshot.data;
+        // Return an empty Container when the document does not exist.
+        if (snapshot.data.isEmpty) {
+          return Container();
+        }
+        final mainMapEventsRecord = mainMapEventsRecordList.isNotEmpty
+            ? mainMapEventsRecordList.first
+            : null;
+        return Scaffold(
+          key: scaffoldKey,
+          resizeToAvoidBottomInset: false,
+          appBar: AppBar(
+            backgroundColor: FlutterFlowTheme.primaryColor,
+            automaticallyImplyLeading: true,
+            title: Text(
+              'LetsLink',
+              style: FlutterFlowTheme.bodyText1,
+            ),
+            actions: [],
+            centerTitle: true,
+            elevation: 4,
+          ),
+          backgroundColor: Colors.black,
+          body: SafeArea(
+            child: FlutterFlowGoogleMap(
+              controller: googleMapsController,
+              onCameraIdle: (latLng) => googleMapsCenter = latLng,
+              initialLocation: googleMapsCenter ??=
+                  mainMapEventsRecord.eventLocation,
+              markers: [
+                if (mainMapEventsRecord != null)
+                  FlutterFlowMarker(
+                    mainMapEventsRecord.reference.path,
+                    mainMapEventsRecord.geopoint,
+                  ),
+              ],
+              markerColor: GoogleMarkerColor.violet,
+              mapType: MapType.normal,
+              style: GoogleMapStyle.standard,
+              initialZoom: 14,
+              allowInteraction: true,
+              allowZoom: true,
+              showZoomControls: true,
+              showLocation: true,
+              showCompass: false,
+              showMapToolbar: false,
+              showTraffic: false,
+              centerMapOnMarkerTap: true,
+            ),
+          ),
+        );
+      },
     );
   }
 }

@@ -137,12 +137,6 @@ class _PostCreateWidgetState extends State<PostCreateWidget>
                     height: 370,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.lightText,
-                      image: DecorationImage(
-                        fit: BoxFit.contain,
-                        image: Image.asset(
-                          'assets/images/emptyPhoto@2x.png',
-                        ).image,
-                      ),
                       boxShadow: [
                         BoxShadow(
                           blurRadius: 10,
@@ -155,7 +149,7 @@ class _PostCreateWidgetState extends State<PostCreateWidget>
                     child: FlutterFlowMediaDisplay(
                       path: valueOrDefault<String>(
                         uploadedFileUrl1,
-                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/wedding-app-anuwld/assets/rfox38ig45wl/emptyPhoto@2x.png',
+                        'https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg',
                       ),
                       imageBuilder: (path) => ClipRRect(
                         borderRadius: BorderRadius.circular(16),

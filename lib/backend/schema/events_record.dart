@@ -17,9 +17,6 @@ abstract class EventsRecord
   DateTime get eventTime;
 
   @nullable
-  String get eventLocation;
-
-  @nullable
   String get eventDescription;
 
   @nullable
@@ -29,12 +26,17 @@ abstract class EventsRecord
   String get eventLocationName;
 
   @nullable
+  LatLng get geopoint;
+
+  @nullable
+  LatLng get eventLocation;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
   static void _initializeBuilder(EventsRecordBuilder builder) => builder
     ..eventName = ''
-    ..eventLocation = ''
     ..eventDescription = ''
     ..eventPhoto = ''
     ..eventLocationName = '';
@@ -63,17 +65,19 @@ abstract class EventsRecord
 Map<String, dynamic> createEventsRecordData({
   String eventName,
   DateTime eventTime,
-  String eventLocation,
   String eventDescription,
   String eventPhoto,
   String eventLocationName,
+  LatLng geopoint,
+  LatLng eventLocation,
 }) =>
     serializers.toFirestore(
         EventsRecord.serializer,
         EventsRecord((e) => e
           ..eventName = eventName
           ..eventTime = eventTime
-          ..eventLocation = eventLocation
           ..eventDescription = eventDescription
           ..eventPhoto = eventPhoto
-          ..eventLocationName = eventLocationName));
+          ..eventLocationName = eventLocationName
+          ..geopoint = geopoint
+          ..eventLocation = eventLocation));
