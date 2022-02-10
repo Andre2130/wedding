@@ -390,47 +390,17 @@ class _CreateEventWidgetState extends State<CreateEventWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                child: FlutterFlowMediaDisplay(
-                  path: valueOrDefault<String>(
-                    uploadedFileUrl,
-                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/wedding-app-anuwld/assets/rfox38ig45wl/emptyPhoto@2x.png',
-                  ),
-                  imageBuilder: (path) => ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: CachedNetworkImage(
-                      imageUrl: path,
-                      width: 300,
-                      height: 300,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  videoPlayerBuilder: (path) => FlutterFlowVideoPlayer(
-                    path: path,
-                    width: 300,
-                    autoPlay: false,
-                    looping: true,
-                    showControls: false,
-                    allowFullScreen: true,
-                    allowPlaybackSpeedMenu: false,
-                  ),
-                ),
-              ),
-              Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 44),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    final eventsCreateData = {
-                      ...createEventsRecordData(
-                        name: '',
-                        time: datePicked2,
-                        date: datePicked1,
-                        description: textController3.text,
-                        mainImage: uploadedFileUrl,
-                        address: locationNameController.text,
-                      ),
-                      'photos': uploadedFileUrl,
-                    };
+                    final eventsCreateData = createEventsRecordData(
+                      name: '',
+                      time: datePicked2,
+                      date: datePicked1,
+                      description: textController3.text,
+                      mainImage: uploadedFileUrl,
+                      address: locationNameController.text,
+                    );
                     final eventsRecordReference = EventsRecord.collection.doc();
                     await eventsRecordReference.set(eventsCreateData);
                     createdPost = EventsRecord.getDocumentFromData(
