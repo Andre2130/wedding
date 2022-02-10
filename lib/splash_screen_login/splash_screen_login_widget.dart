@@ -161,6 +161,10 @@ class _SplashScreenLoginWidgetState extends State<SplashScreenLoginWidget>
                         controller: emailTextController,
                         obscureText: false,
                         decoration: InputDecoration(
+                          labelStyle: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Cormorant Garamond',
+                            fontSize: 16,
+                          ),
                           hintText: 'Your Email',
                           hintStyle: FlutterFlowTheme.title3.override(
                             fontFamily: 'Open Sans',
@@ -199,6 +203,10 @@ class _SplashScreenLoginWidgetState extends State<SplashScreenLoginWidget>
                         controller: passwordController,
                         obscureText: !passwordVisibility,
                         decoration: InputDecoration(
+                          labelStyle: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Cormorant Garamond',
+                            fontSize: 16,
+                          ),
                           hintText: 'Passcode',
                           hintStyle: FlutterFlowTheme.title3.override(
                             fontFamily: 'Open Sans',

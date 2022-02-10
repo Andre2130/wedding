@@ -23,6 +23,7 @@ import '../../ceremony_program/ceremony_program_widget.dart';
 import '../../our_story/our_story_widget.dart';
 import '../../wedding_party/wedding_party_widget.dart';
 import '../../main_map/main_map_widget.dart';
+import '../../create_event_page/create_event_page_widget.dart';
 
 class PushNotificationsHandler extends StatefulWidget {
   const PushNotificationsHandler(
@@ -118,6 +119,7 @@ final pageBuilderMap = <String, Future<Widget> Function(Map<String, dynamic>)>{
   'MainMap': (data) async => MainMapWidget(
         city: await getDocumentParameter(data, 'city', CityRecord.serializer),
       ),
+  'createEventPage': (data) async => CreateEventPageWidget(),
 };
 
 bool hasMatchingParameters(Map<String, dynamic> data, Set<String> params) =>

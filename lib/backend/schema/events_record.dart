@@ -11,35 +11,40 @@ abstract class EventsRecord
   static Serializer<EventsRecord> get serializer => _$eventsRecordSerializer;
 
   @nullable
-  String get eventName;
+  String get name;
 
   @nullable
-  DateTime get eventTime;
+  DateTime get time;
 
   @nullable
-  String get eventDescription;
+  BuiltList<String> get categories;
 
   @nullable
-  String get eventPhoto;
+  DateTime get date;
 
   @nullable
-  String get eventLocationName;
+  String get description;
 
   @nullable
-  LatLng get geopoint;
+  BuiltList<String> get photos;
 
   @nullable
-  LatLng get eventLocation;
+  String get mainImage;
+
+  @nullable
+  String get address;
 
   @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
   static void _initializeBuilder(EventsRecordBuilder builder) => builder
-    ..eventName = ''
-    ..eventDescription = ''
-    ..eventPhoto = ''
-    ..eventLocationName = '';
+    ..name = ''
+    ..categories = ListBuilder()
+    ..description = ''
+    ..photos = ListBuilder()
+    ..mainImage = ''
+    ..address = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('events');
@@ -63,21 +68,21 @@ abstract class EventsRecord
 }
 
 Map<String, dynamic> createEventsRecordData({
-  String eventName,
-  DateTime eventTime,
-  String eventDescription,
-  String eventPhoto,
-  String eventLocationName,
-  LatLng geopoint,
-  LatLng eventLocation,
+  String name,
+  DateTime time,
+  DateTime date,
+  String description,
+  String mainImage,
+  String address,
 }) =>
     serializers.toFirestore(
         EventsRecord.serializer,
         EventsRecord((e) => e
-          ..eventName = eventName
-          ..eventTime = eventTime
-          ..eventDescription = eventDescription
-          ..eventPhoto = eventPhoto
-          ..eventLocationName = eventLocationName
-          ..geopoint = geopoint
-          ..eventLocation = eventLocation));
+          ..name = name
+          ..time = time
+          ..categories = null
+          ..date = date
+          ..description = description
+          ..photos = null
+          ..mainImage = mainImage
+          ..address = address));

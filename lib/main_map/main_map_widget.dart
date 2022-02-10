@@ -19,12 +19,32 @@ class MainMapWidget extends StatefulWidget {
 }
 
 class _MainMapWidgetState extends State<MainMapWidget> {
+  LatLng currentUserLocationValue;
+  final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng googleMapsCenter;
   Completer<GoogleMapController> googleMapsController;
-  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
+        .then((loc) => setState(() => currentUserLocationValue = loc));
+  }
 
   @override
   Widget build(BuildContext context) {
+    if (currentUserLocationValue == null) {
+      return Center(
+        child: SizedBox(
+          width: 50,
+          height: 50,
+          child: SpinKitPumpingHeart(
+            color: Color(0xFFEEB111),
+            size: 50,
+          ),
+        ),
+      );
+    }
     return StreamBuilder<List<EventsRecord>>(
       stream: queryEventsRecord(
         singleRecord: true,
@@ -70,13 +90,12 @@ class _MainMapWidgetState extends State<MainMapWidget> {
             child: FlutterFlowGoogleMap(
               controller: googleMapsController,
               onCameraIdle: (latLng) => googleMapsCenter = latLng,
-              initialLocation: googleMapsCenter ??=
-                  mainMapEventsRecord.eventLocation,
+              initialLocation: googleMapsCenter ??= currentUserLocationValue,
               markers: [
-                if (mainMapEventsRecord != null)
+                if (widget.city != null)
                   FlutterFlowMarker(
-                    mainMapEventsRecord.reference.path,
-                    mainMapEventsRecord.geopoint,
+                    widget.city.reference.path,
+                    widget.city.location,
                   ),
               ],
               markerColor: GoogleMarkerColor.violet,

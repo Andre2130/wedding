@@ -1,4 +1,8 @@
+import '../auth/auth_util.dart';
+import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
+import '../flutter_flow/flutter_flow_calendar.dart';
+import '../flutter_flow/flutter_flow_google_map.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../main.dart';
@@ -17,7 +21,10 @@ class HomePageWidget extends StatefulWidget {
 
 class _HomePageWidgetState extends State<HomePageWidget>
     with TickerProviderStateMixin {
+  DateTimeRange calendarSelectedDay;
   PageController pageViewController;
+  LatLng googleMapsCenter;
+  Completer<GoogleMapController> googleMapsController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final animationsMap = {
     'containerOnPageLoadAnimation': AnimationInfo(
@@ -111,12 +118,18 @@ class _HomePageWidgetState extends State<HomePageWidget>
           .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
       this,
     );
+
+    calendarSelectedDay = DateTimeRange(
+      start: DateTime.now().startOfDay,
+      end: DateTime.now().endOfDay,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      resizeToAvoidBottomInset: false,
       backgroundColor: FlutterFlowTheme.pageBackground,
       body: Container(
         width: double.infinity,
@@ -204,11 +217,36 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             );
                                           },
                                           child: Image.asset(
-                                            'assets/images/boxed-water-is-better-zQNDCje06VM-unsplash.jpg',
+                                            'assets/images/df3hg_',
                                             width: double.infinity,
                                             height: double.infinity,
-                                            fit: BoxFit.cover,
+                                            fit: BoxFit.fill,
                                           ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment: AlignmentDirectional(0, 0),
+                                        child: FlutterFlowCalendar(
+                                          color: FlutterFlowTheme.primaryColor,
+                                          iconColor: FlutterFlowTheme.darkText,
+                                          weekFormat: true,
+                                          weekStartsMonday: false,
+                                          initialDate: getCurrentTimestamp,
+                                          onChange:
+                                              (DateTimeRange newSelectedDate) {
+                                            setState(() => calendarSelectedDay =
+                                                newSelectedDate);
+                                          },
+                                          titleStyle: TextStyle(),
+                                          dayOfWeekStyle: TextStyle(
+                                            color:
+                                                FlutterFlowTheme.primaryColor,
+                                          ),
+                                          dateStyle: TextStyle(
+                                            color: FlutterFlowTheme.darkText,
+                                          ),
+                                          selectedDateStyle: TextStyle(),
+                                          inactiveDateStyle: TextStyle(),
                                         ),
                                       ),
                                     ],
@@ -229,6 +267,51 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                         child: Text(
                                           'Night Life',
                                           style: FlutterFlowTheme.title1,
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment: AlignmentDirectional(0, 0),
+                                        child: StreamBuilder<GuestsRecord>(
+                                          stream: GuestsRecord.getDocument(
+                                              currentUserReference),
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 50,
+                                                  height: 50,
+                                                  child: SpinKitPumpingHeart(
+                                                    color: Color(0xFFEEB111),
+                                                    size: 50,
+                                                  ),
+                                                ),
+                                              );
+                                            }
+                                            final googleMapGuestsRecord =
+                                                snapshot.data;
+                                            return FlutterFlowGoogleMap(
+                                              controller: googleMapsController,
+                                              onCameraIdle: (latLng) =>
+                                                  googleMapsCenter = latLng,
+                                              initialLocation:
+                                                  googleMapsCenter ??= LatLng(
+                                                      13.106061, -59.613158),
+                                              markerColor:
+                                                  GoogleMarkerColor.violet,
+                                              mapType: MapType.normal,
+                                              style: GoogleMapStyle.standard,
+                                              initialZoom: 4,
+                                              allowInteraction: true,
+                                              allowZoom: true,
+                                              showZoomControls: true,
+                                              showLocation: true,
+                                              showCompass: false,
+                                              showMapToolbar: false,
+                                              showTraffic: false,
+                                              centerMapOnMarkerTap: true,
+                                            );
+                                          },
                                         ),
                                       ),
                                     ],

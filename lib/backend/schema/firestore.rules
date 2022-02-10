@@ -1,54 +1,60 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    function userDoc() {
-      return /databases/$(database)/documents/guests/$(request.auth.uid);
-    }
-
-    match /guests/{userId} {
+    match /guests/{document} {
+      allow create: if true;
       allow read: if true;
-      allow create, update: if request.auth.uid == userId;
+      allow write: if true;
+      allow delete: if true;
     }
 
-    match /chats/{id} {
-      allow read, update: if userDoc() in resource.data.users;
-      allow create: if userDoc() in request.resource.data.users;
+    match /events/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
     }
 
-    match /chat_messages/{id} {
-      allow read: if userDoc() in get(resource.data.chat).data.users;
-      allow create: if userDoc() in get(request.resource.data.chat).data.users &&
-                       userDoc() == request.resource.data.user;
+    match /socialPosts/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
     }
 
-    // WARNING! ONLY FOR TEST MODE: Make sure you properly configure the
-    // security rules for this collection before publishing your app.
-    match /events/{id} {
-      allow read, write: if true;
+    match /comments/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
     }
 
-    // WARNING! ONLY FOR TEST MODE: Make sure you properly configure the
-    // security rules for this collection before publishing your app.
-    match /socialPosts/{id} {
-      allow read, write: if true;
+    match /chats/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
     }
 
-    // WARNING! ONLY FOR TEST MODE: Make sure you properly configure the
-    // security rules for this collection before publishing your app.
-    match /comments/{id} {
-      allow read, write: if true;
+    match /chat_messages/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
     }
 
-    // WARNING! ONLY FOR TEST MODE: Make sure you properly configure the
-    // security rules for this collection before publishing your app.
-    match /city/{id} {
-      allow read, write: if true;
+    match /city/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
     }
 
-    // WARNING! ONLY FOR TEST MODE: Make sure you properly configure the
-    // security rules for this collection before publishing your app.
-    match /categories/{id} {
-      allow read, write: if true;
+    match /categories/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
     }
   }
 }

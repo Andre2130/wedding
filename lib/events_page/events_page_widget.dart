@@ -76,7 +76,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
             child: StreamBuilder<List<EventsRecord>>(
               stream: queryEventsRecord(
                 queryBuilder: (eventsRecord) =>
-                    eventsRecord.orderBy('eventTime', descending: true),
+                    eventsRecord.orderBy('name', descending: true),
               ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
@@ -145,7 +145,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                   borderRadius: BorderRadius.circular(8),
                                   child: CachedNetworkImage(
                                     imageUrl: valueOrDefault<String>(
-                                      listViewEventsRecord.eventPhoto,
+                                      listViewEventsRecord.mainImage,
                                       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/wedding-app-anuwld/assets/k4kvz37vey3d/helena-hertz-K0FidtcDQik-unsplash.jpg',
                                     ),
                                     width: double.infinity,
@@ -168,12 +168,11 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              listViewEventsRecord.eventName,
+                                              listViewEventsRecord.name,
                                               style: FlutterFlowTheme.title2,
                                             ),
                                             Text(
-                                              listViewEventsRecord
-                                                  .eventLocationName,
+                                              listViewEventsRecord.description,
                                               style: FlutterFlowTheme.subtitle2,
                                             ),
                                           ],
@@ -189,16 +188,14 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 0, 0, 4),
                                             child: Text(
-                                              dateTimeFormat(
-                                                  'MMMEd',
-                                                  listViewEventsRecord
-                                                      .eventTime),
+                                              dateTimeFormat('yMd',
+                                                  listViewEventsRecord.date),
                                               style: FlutterFlowTheme.subtitle2,
                                             ),
                                           ),
                                           Text(
-                                            dateTimeFormat('jm',
-                                                listViewEventsRecord.eventTime),
+                                            dateTimeFormat('jms',
+                                                listViewEventsRecord.time),
                                             textAlign: TextAlign.end,
                                             style: FlutterFlowTheme.title3,
                                           ),

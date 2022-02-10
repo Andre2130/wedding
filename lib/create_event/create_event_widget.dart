@@ -25,11 +25,12 @@ class CreateEventWidget extends StatefulWidget {
 
 class _CreateEventWidgetState extends State<CreateEventWidget>
     with TickerProviderStateMixin {
-  DateTime datePicked;
+  DateTime datePicked1;
+  TextEditingController textController3;
   String uploadedFileUrl = '';
   TextEditingController textController1;
   TextEditingController locationNameController;
-  TextEditingController locationAddressController;
+  DateTime datePicked2;
   EventsRecord createdPost;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final animationsMap = {
@@ -60,9 +61,9 @@ class _CreateEventWidgetState extends State<CreateEventWidget>
       this,
     );
 
-    locationAddressController = TextEditingController();
     locationNameController = TextEditingController();
     textController1 = TextEditingController();
+    textController3 = TextEditingController();
   }
 
   @override
@@ -121,16 +122,25 @@ class _CreateEventWidgetState extends State<CreateEventWidget>
                     if (selectedMedia != null &&
                         validateFileFormat(
                             selectedMedia.storagePath, context)) {
-                      showUploadMessage(context, 'Uploading file...',
-                          showLoading: true);
+                      showUploadMessage(
+                        context,
+                        'Uploading file...',
+                        showLoading: true,
+                      );
                       final downloadUrl = await uploadData(
                           selectedMedia.storagePath, selectedMedia.bytes);
                       ScaffoldMessenger.of(context).hideCurrentSnackBar();
                       if (downloadUrl != null) {
                         setState(() => uploadedFileUrl = downloadUrl);
-                        showUploadMessage(context, 'Success!');
+                        showUploadMessage(
+                          context,
+                          'Success!',
+                        );
                       } else {
-                        showUploadMessage(context, 'Failed to upload media');
+                        showUploadMessage(
+                          context,
+                          'Failed to upload media',
+                        );
                         return;
                       }
                     }
@@ -238,49 +248,12 @@ class _CreateEventWidgetState extends State<CreateEventWidget>
                         controller: locationNameController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Event Location Name',
+                          labelText: 'Address',
                           labelStyle: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Cormorant Garamond',
                             color: FlutterFlowTheme.grayIcon,
                           ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.lightLines,
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.lightLines,
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          filled: true,
-                          fillColor: FlutterFlowTheme.lightText,
-                          contentPadding:
-                              EdgeInsetsDirectional.fromSTEB(20, 24, 20, 24),
-                        ),
-                        style: FlutterFlowTheme.bodyText1,
-                        textAlign: TextAlign.start,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child: TextFormField(
-                        controller: locationAddressController,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          labelText: 'Location Address',
-                          labelStyle: FlutterFlowTheme.bodyText1.override(
+                          hintStyle: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Cormorant Garamond',
                             color: FlutterFlowTheme.grayIcon,
                           ),
@@ -318,7 +291,63 @@ class _CreateEventWidgetState extends State<CreateEventWidget>
                       context,
                       showTitleActions: true,
                       onConfirm: (date) {
-                        setState(() => datePicked = date);
+                        setState(() => datePicked1 = date);
+                      },
+                      currentTime: getCurrentTimestamp,
+                      minTime: getCurrentTimestamp,
+                    );
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.lightText,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: FlutterFlowTheme.lightLines,
+                        width: 1,
+                      ),
+                    ),
+                    child: TextFormField(
+                      controller: textController3,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Description',
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        contentPadding:
+                            EdgeInsetsDirectional.fromSTEB(20, 24, 20, 24),
+                      ),
+                      style: FlutterFlowTheme.title3.override(
+                        fontFamily: 'Cormorant Garamond',
+                        color: FlutterFlowTheme.grayIcon,
+                      ),
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                child: InkWell(
+                  onTap: () async {
+                    await DatePicker.showDateTimePicker(
+                      context,
+                      showTitleActions: true,
+                      onConfirm: (date) {
+                        setState(() => datePicked2 = date);
                       },
                       currentTime: getCurrentTimestamp,
                       minTime: getCurrentTimestamp,
@@ -342,7 +371,7 @@ class _CreateEventWidgetState extends State<CreateEventWidget>
                         children: [
                           Text(
                             valueOrDefault<String>(
-                              dateTimeFormat('MMMEd', datePicked),
+                              dateTimeFormat('MMMEd', datePicked2),
                               'Choose Date',
                             ),
                             style: FlutterFlowTheme.bodyText1,
@@ -350,7 +379,7 @@ class _CreateEventWidgetState extends State<CreateEventWidget>
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                             child: Text(
-                              dateTimeFormat('jm', datePicked),
+                              dateTimeFormat('jm', datePicked2),
                               style: FlutterFlowTheme.bodyText1,
                             ),
                           ),
@@ -361,15 +390,47 @@ class _CreateEventWidgetState extends State<CreateEventWidget>
                 ),
               ),
               Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                child: FlutterFlowMediaDisplay(
+                  path: valueOrDefault<String>(
+                    uploadedFileUrl,
+                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/wedding-app-anuwld/assets/rfox38ig45wl/emptyPhoto@2x.png',
+                  ),
+                  imageBuilder: (path) => ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: CachedNetworkImage(
+                      imageUrl: path,
+                      width: 300,
+                      height: 300,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  videoPlayerBuilder: (path) => FlutterFlowVideoPlayer(
+                    path: path,
+                    width: 300,
+                    autoPlay: false,
+                    looping: true,
+                    showControls: false,
+                    allowFullScreen: true,
+                    allowPlaybackSpeedMenu: false,
+                  ),
+                ),
+              ),
+              Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 44),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    final eventsCreateData = createEventsRecordData(
-                      eventName: textController1.text,
-                      eventPhoto: uploadedFileUrl,
-                      eventLocationName: locationAddressController.text,
-                      eventTime: datePicked,
-                    );
+                    final eventsCreateData = {
+                      ...createEventsRecordData(
+                        name: '',
+                        time: datePicked2,
+                        date: datePicked1,
+                        description: textController3.text,
+                        mainImage: uploadedFileUrl,
+                        address: locationNameController.text,
+                      ),
+                      'photos': uploadedFileUrl,
+                    };
                     final eventsRecordReference = EventsRecord.collection.doc();
                     await eventsRecordReference.set(eventsCreateData);
                     createdPost = EventsRecord.getDocumentFromData(

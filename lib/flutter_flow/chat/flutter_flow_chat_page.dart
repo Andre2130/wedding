@@ -170,7 +170,11 @@ class _FFChatPageState extends State<FFChatPage> {
                   !validateFileFormat(selectedMedia.storagePath, context)) {
                 return;
               }
-              showUploadMessage(context, 'Sending photo...', showLoading: true);
+              showUploadMessage(
+                context,
+                'Sending photo',
+                showLoading: true,
+              );
               final downloadUrl = await uploadData(
                   selectedMedia.storagePath, selectedMedia.bytes);
               ScaffoldMessenger.of(context).hideCurrentSnackBar();

@@ -110,7 +110,6 @@ class _PostCreateWidgetState extends State<PostCreateWidget>
                         await selectMediaWithSourceBottomSheet(
                       context: context,
                       allowPhoto: true,
-                      allowVideo: true,
                       backgroundColor: FlutterFlowTheme.lightText,
                       textColor: FlutterFlowTheme.darkText,
                       pickerFontFamily: 'Cormorant Garamond',
@@ -118,16 +117,25 @@ class _PostCreateWidgetState extends State<PostCreateWidget>
                     if (selectedMedia != null &&
                         validateFileFormat(
                             selectedMedia.storagePath, context)) {
-                      showUploadMessage(context, 'Uploading file...',
-                          showLoading: true);
+                      showUploadMessage(
+                        context,
+                        'Uploading file...',
+                        showLoading: true,
+                      );
                       final downloadUrl = await uploadData(
                           selectedMedia.storagePath, selectedMedia.bytes);
                       ScaffoldMessenger.of(context).hideCurrentSnackBar();
                       if (downloadUrl != null) {
                         setState(() => uploadedFileUrl1 = downloadUrl);
-                        showUploadMessage(context, 'Success!');
+                        showUploadMessage(
+                          context,
+                          'Success!',
+                        );
                       } else {
-                        showUploadMessage(context, 'Failed to upload media');
+                        showUploadMessage(
+                          context,
+                          'Failed to upload media',
+                        );
                         return;
                       }
                     }
@@ -137,6 +145,12 @@ class _PostCreateWidgetState extends State<PostCreateWidget>
                     height: 370,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.lightText,
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: Image.asset(
+                          'assets/images/Screen_Shot_2021-12-29_at_6.44.26_PM.png',
+                        ).image,
+                      ),
                       boxShadow: [
                         BoxShadow(
                           blurRadius: 10,
@@ -146,29 +160,56 @@ class _PostCreateWidgetState extends State<PostCreateWidget>
                       ],
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    child: FlutterFlowMediaDisplay(
-                      path: valueOrDefault<String>(
-                        uploadedFileUrl1,
-                        'https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg',
+                    child: StreamBuilder<List<SocialPostsRecord>>(
+                      stream: querySocialPostsRecord(
+                        singleRecord: true,
                       ),
-                      imageBuilder: (path) => ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: CachedNetworkImage(
-                          imageUrl: path,
-                          width: 300,
-                          height: 300,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      videoPlayerBuilder: (path) => FlutterFlowVideoPlayer(
-                        path: path,
-                        width: 300,
-                        autoPlay: false,
-                        looping: true,
-                        showControls: false,
-                        allowFullScreen: true,
-                        allowPlaybackSpeedMenu: false,
-                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50,
+                              height: 50,
+                              child: SpinKitPumpingHeart(
+                                color: Color(0xFFEEB111),
+                                size: 50,
+                              ),
+                            ),
+                          );
+                        }
+                        List<SocialPostsRecord>
+                            mediaDisplaySocialPostsRecordList = snapshot.data;
+                        // Return an empty Container when the document does not exist.
+                        if (snapshot.data.isEmpty) {
+                          return Container();
+                        }
+                        final mediaDisplaySocialPostsRecord =
+                            mediaDisplaySocialPostsRecordList.isNotEmpty
+                                ? mediaDisplaySocialPostsRecordList.first
+                                : null;
+                        return FlutterFlowMediaDisplay(
+                          path: uploadedFileUrl1,
+                          imageBuilder: (path) => ClipRRect(
+                            borderRadius: BorderRadius.circular(16),
+                            child: CachedNetworkImage(
+                              imageUrl: path,
+                              width: 300,
+                              height: 300,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          videoPlayerBuilder: (path) => FlutterFlowVideoPlayer(
+                            path: path,
+                            width: 300,
+                            autoPlay: false,
+                            looping: true,
+                            showControls: false,
+                            allowFullScreen: true,
+                            allowPlaybackSpeedMenu: false,
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),
@@ -190,17 +231,25 @@ class _PostCreateWidgetState extends State<PostCreateWidget>
                         if (selectedMedia != null &&
                             validateFileFormat(
                                 selectedMedia.storagePath, context)) {
-                          showUploadMessage(context, 'Uploading file...',
-                              showLoading: true);
+                          showUploadMessage(
+                            context,
+                            'Uploading file...',
+                            showLoading: true,
+                          );
                           final downloadUrl = await uploadData(
                               selectedMedia.storagePath, selectedMedia.bytes);
                           ScaffoldMessenger.of(context).hideCurrentSnackBar();
                           if (downloadUrl != null) {
                             setState(() => uploadedFileUrl2 = downloadUrl);
-                            showUploadMessage(context, 'Success!');
+                            showUploadMessage(
+                              context,
+                              'Success!',
+                            );
                           } else {
                             showUploadMessage(
-                                context, 'Failed to upload media');
+                              context,
+                              'Failed to upload media',
+                            );
                             return;
                           }
                         }
@@ -303,7 +352,6 @@ class _PostCreateWidgetState extends State<PostCreateWidget>
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: 'Leave a message for the couple....',
-                          hintStyle: FlutterFlowTheme.bodyText1,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.lightLines,

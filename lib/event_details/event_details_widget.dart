@@ -72,7 +72,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                   borderRadius: BorderRadius.circular(16),
                   child: CachedNetworkImage(
                     imageUrl: valueOrDefault<String>(
-                      widget.eventDetails.eventPhoto,
+                      widget.eventDetails.mainImage,
                       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/wedding-app-anuwld/assets/k4kvz37vey3d/helena-hertz-K0FidtcDQik-unsplash.jpg',
                     ),
                     width: double.infinity,
@@ -92,7 +92,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                     child: Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
                       child: Text(
-                        widget.eventDetails.eventName,
+                        widget.eventDetails.name,
                         style: FlutterFlowTheme.title2,
                       ),
                     ),
@@ -110,7 +110,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        widget.eventDetails.eventLocationName,
+                        widget.eventDetails.address,
                         style: FlutterFlowTheme.subtitle1.override(
                           fontFamily: 'Cormorant Garamond',
                           fontSize: 24,
@@ -118,7 +118,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                         ),
                       ),
                       Text(
-                        widget.eventDetails.eventLocationName,
+                        widget.eventDetails.categories.length.toString(),
                         style: FlutterFlowTheme.subtitle2,
                       ),
                     ],
@@ -154,7 +154,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
                     child: Text(
-                      dateTimeFormat('MMMEd', widget.eventDetails.eventTime),
+                      dateTimeFormat('yMd', widget.eventDetails.date),
                       style: FlutterFlowTheme.subtitle2.override(
                         fontFamily: 'Cormorant Garamond',
                         color: FlutterFlowTheme.secondaryColor,
@@ -163,7 +163,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                     ),
                   ),
                   Text(
-                    dateTimeFormat('jm', widget.eventDetails.eventTime),
+                    dateTimeFormat('EEEE', widget.eventDetails.time),
                     textAlign: TextAlign.end,
                     style: FlutterFlowTheme.title3.override(
                       fontFamily: 'Open Sans',
