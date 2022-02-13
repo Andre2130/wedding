@@ -50,10 +50,10 @@ class _OurStoryWidgetState extends State<OurStoryWidget> {
                           borderRadius: 30,
                           borderWidth: 1,
                           buttonSize: 44,
-                          fillColor: FlutterFlowTheme.lightText,
+                          fillColor: FlutterFlowTheme.of(context).lightText,
                           icon: Icon(
                             Icons.arrow_back_rounded,
-                            color: FlutterFlowTheme.grayIcon,
+                            color: FlutterFlowTheme.of(context).grayIcon,
                             size: 24,
                           ),
                           onPressed: () async {
@@ -70,7 +70,7 @@ class _OurStoryWidgetState extends State<OurStoryWidget> {
                       gradient: LinearGradient(
                         colors: [
                           Color(0x0014181B),
-                          FlutterFlowTheme.tertiaryColor
+                          FlutterFlowTheme.of(context).tertiaryColor
                         ],
                         stops: [0, 1],
                         begin: AlignmentDirectional(0, -1),
@@ -83,11 +83,11 @@ class _OurStoryWidgetState extends State<OurStoryWidget> {
                       children: [
                         Text(
                           'Our Story',
-                          style: FlutterFlowTheme.title2.override(
-                            fontFamily: 'Poppins',
-                            color: FlutterFlowTheme.lightText,
-                            fontSize: 32,
-                          ),
+                          style: FlutterFlowTheme.of(context).title2.override(
+                                fontFamily: 'Poppins',
+                                color: FlutterFlowTheme.of(context).lightText,
+                                fontSize: 32,
+                              ),
                         ),
                       ],
                     ),
@@ -105,10 +105,10 @@ class _OurStoryWidgetState extends State<OurStoryWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
                     child: Text(
                       'How We Met',
-                      style: FlutterFlowTheme.title2.override(
-                        fontFamily: 'Poppins',
-                        color: FlutterFlowTheme.primaryColor,
-                      ),
+                      style: FlutterFlowTheme.of(context).title2.override(
+                            fontFamily: 'Poppins',
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                          ),
                     ),
                   ),
                   Padding(
@@ -119,10 +119,12 @@ class _OurStoryWidgetState extends State<OurStoryWidget> {
                         Expanded(
                           child: Text(
                             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Cormorant Garamond',
-                              color: FlutterFlowTheme.darkText,
-                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Cormorant Garamond',
+                                  color: FlutterFlowTheme.of(context).darkText,
+                                ),
                           ),
                         ),
                       ],
@@ -133,16 +135,16 @@ class _OurStoryWidgetState extends State<OurStoryWidget> {
                     thickness: 1,
                     indent: 0,
                     endIndent: 0,
-                    color: FlutterFlowTheme.lightLines,
+                    color: FlutterFlowTheme.of(context).lightLines,
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
                     child: Text(
                       'Engagement',
-                      style: FlutterFlowTheme.title2.override(
-                        fontFamily: 'Poppins',
-                        color: FlutterFlowTheme.primaryColor,
-                      ),
+                      style: FlutterFlowTheme.of(context).title2.override(
+                            fontFamily: 'Poppins',
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                          ),
                     ),
                   ),
                   Padding(
@@ -153,10 +155,12 @@ class _OurStoryWidgetState extends State<OurStoryWidget> {
                         Expanded(
                           child: Text(
                             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Cormorant Garamond',
-                              color: FlutterFlowTheme.darkText,
-                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Cormorant Garamond',
+                                  color: FlutterFlowTheme.of(context).darkText,
+                                ),
                           ),
                         ),
                       ],
@@ -167,16 +171,16 @@ class _OurStoryWidgetState extends State<OurStoryWidget> {
                     thickness: 1,
                     indent: 0,
                     endIndent: 0,
-                    color: FlutterFlowTheme.lightLines,
+                    color: FlutterFlowTheme.of(context).lightLines,
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
                     child: Text(
                       'Our Future',
-                      style: FlutterFlowTheme.title2.override(
-                        fontFamily: 'Poppins',
-                        color: FlutterFlowTheme.primaryColor,
-                      ),
+                      style: FlutterFlowTheme.of(context).title2.override(
+                            fontFamily: 'Poppins',
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                          ),
                     ),
                   ),
                   Padding(
@@ -187,10 +191,12 @@ class _OurStoryWidgetState extends State<OurStoryWidget> {
                         Expanded(
                           child: Text(
                             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Cormorant Garamond',
-                              color: FlutterFlowTheme.darkText,
-                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Cormorant Garamond',
+                                  color: FlutterFlowTheme.of(context).darkText,
+                                ),
                           ),
                         ),
                       ],

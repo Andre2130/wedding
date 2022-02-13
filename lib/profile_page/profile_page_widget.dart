@@ -56,7 +56,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
             automaticallyImplyLeading: false,
             title: Text(
               'Edit Profile',
-              style: FlutterFlowTheme.subtitle1,
+              style: FlutterFlowTheme.of(context).subtitle1,
             ),
             actions: [
               InkWell(
@@ -70,7 +70,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                 },
                 child: Icon(
                   Icons.settings_outlined,
-                  color: FlutterFlowTheme.darkText,
+                  color: FlutterFlowTheme.of(context).darkText,
                   size: 24,
                 ),
               ),
@@ -144,7 +144,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                           width: 130,
                           height: 40,
                           color: Colors.white,
-                          textStyle: FlutterFlowTheme.subtitle2,
+                          textStyle: FlutterFlowTheme.of(context).subtitle2,
                           elevation: 2,
                           borderSide: BorderSide(
                             color: Colors.transparent,
@@ -165,17 +165,19 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Full Name',
-                        labelStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Cormorant Garamond',
-                          color: FlutterFlowTheme.grayIcon,
-                        ),
+                        labelStyle:
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Cormorant Garamond',
+                                  color: FlutterFlowTheme.of(context).grayIcon,
+                                ),
                         hintText: 'Your full name...',
-                        hintStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Lexend Deca',
-                          color: Color(0xFF95A1AC),
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal,
-                        ),
+                        hintStyle:
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF95A1AC),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0xFFDBE2E7),
@@ -195,10 +197,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                         contentPadding:
                             EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
                       ),
-                      style: FlutterFlowTheme.subtitle1.override(
-                        fontFamily: 'Cormorant Garamond',
-                        color: Colors.black,
-                      ),
+                      style: FlutterFlowTheme.of(context).subtitle1.override(
+                            fontFamily: 'Cormorant Garamond',
+                            color: Colors.black,
+                          ),
                     ),
                   ),
                 ),
@@ -209,17 +211,19 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'Email Address',
-                      labelStyle: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Cormorant Garamond',
-                        color: FlutterFlowTheme.grayIcon,
-                      ),
+                      labelStyle:
+                          FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Cormorant Garamond',
+                                color: FlutterFlowTheme.of(context).grayIcon,
+                              ),
                       hintText: 'Your email..',
-                      hintStyle: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Lexend Deca',
-                        color: Color(0xFF95A1AC),
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                      ),
+                      hintStyle:
+                          FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Lexend Deca',
+                                color: Color(0xFF95A1AC),
+                                fontSize: 14,
+                                fontWeight: FontWeight.normal,
+                              ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Color(0xFFDBE2E7),
@@ -239,10 +243,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                       contentPadding:
                           EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
                     ),
-                    style: FlutterFlowTheme.subtitle1.override(
-                      fontFamily: 'Cormorant Garamond',
-                      color: Colors.black,
-                    ),
+                    style: FlutterFlowTheme.of(context).subtitle1.override(
+                          fontFamily: 'Cormorant Garamond',
+                          color: Colors.black,
+                        ),
                   ),
                 ),
                 Align(
@@ -261,11 +265,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                       options: FFButtonOptions(
                         width: 340,
                         height: 60,
-                        color: FlutterFlowTheme.primaryColor,
-                        textStyle: FlutterFlowTheme.title3.override(
-                          fontFamily: 'Open Sans',
-                          color: FlutterFlowTheme.lightText,
-                        ),
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                        textStyle: FlutterFlowTheme.of(context).title3.override(
+                              fontFamily: 'Open Sans',
+                              color: FlutterFlowTheme.of(context).lightText,
+                            ),
                         elevation: 2,
                         borderSide: BorderSide(
                           color: Colors.transparent,
@@ -295,11 +299,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                       options: FFButtonOptions(
                         width: 340,
                         height: 60,
-                        color: FlutterFlowTheme.primaryColor,
-                        textStyle: FlutterFlowTheme.title3.override(
-                          fontFamily: 'Open Sans',
-                          color: FlutterFlowTheme.lightText,
-                        ),
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                        textStyle: FlutterFlowTheme.of(context).title3.override(
+                              fontFamily: 'Open Sans',
+                              color: FlutterFlowTheme.of(context).lightText,
+                            ),
                         elevation: 2,
                         borderSide: BorderSide(
                           color: Colors.transparent,

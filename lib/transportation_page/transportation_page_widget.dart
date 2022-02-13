@@ -44,10 +44,10 @@ class _TransportationPageWidgetState extends State<TransportationPageWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                     child: Text(
                       'By Car',
-                      style: FlutterFlowTheme.title3.override(
-                        fontFamily: 'Open Sans',
-                        color: FlutterFlowTheme.primaryColor,
-                      ),
+                      style: FlutterFlowTheme.of(context).title3.override(
+                            fontFamily: 'Open Sans',
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                          ),
                     ),
                   ),
                 ],
@@ -61,10 +61,10 @@ class _TransportationPageWidgetState extends State<TransportationPageWidget> {
                   Expanded(
                     child: Text(
                       'Fly into Boston Logan Airport! If you\'re taking a train like Amtrak, get off at South Station to end up right downtown. Both the airport and train station are on the MBTA (aka \"The T\"), so you can get around the Boston area from there.\n\nTo get to our venue in Lincoln, MA, we recommend renting a car or carpooling. If you plan to take an Uber or Lyft, we recommend scheduling a ride back since there may be limited drivers in that area on Saturday night (here\'s how to schedule an Uber).',
-                      style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Cormorant Garamond',
-                        color: FlutterFlowTheme.darkText,
-                      ),
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Cormorant Garamond',
+                            color: FlutterFlowTheme.of(context).darkText,
+                          ),
                     ),
                   ),
                 ],
@@ -85,10 +85,10 @@ class _TransportationPageWidgetState extends State<TransportationPageWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                     child: Text(
                       'By Plane',
-                      style: FlutterFlowTheme.title3.override(
-                        fontFamily: 'Open Sans',
-                        color: FlutterFlowTheme.primaryColor,
-                      ),
+                      style: FlutterFlowTheme.of(context).title3.override(
+                            fontFamily: 'Open Sans',
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                          ),
                     ),
                   ),
                 ],
@@ -102,10 +102,10 @@ class _TransportationPageWidgetState extends State<TransportationPageWidget> {
                   Expanded(
                     child: Text(
                       'Fly into Boston Logan Airport! If you\'re taking a train like Amtrak, get off at South Station to end up right downtown. Both the airport and train station are on the MBTA (aka \"The T\"), so you can get around the Boston area from there.\n\nTo get to our venue in Lincoln, MA, we recommend renting a car or carpooling. If you plan to take an Uber or Lyft, we recommend scheduling a ride back since there may be limited drivers in that area on Saturday night (here\'s how to schedule an Uber).\n\nTo get to our house in Malden for Sunday brunch, take the Orange Line north to Malden Center, and walk for about 10 minutes! Since it\'s Sunday, there will also be free street parking available in the area. Our address is 20 Park View Terrace, Malden, MA 02148.',
-                      style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Cormorant Garamond',
-                        color: FlutterFlowTheme.darkText,
-                      ),
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Cormorant Garamond',
+                            color: FlutterFlowTheme.of(context).darkText,
+                          ),
                     ),
                   ),
                 ],
@@ -126,10 +126,10 @@ class _TransportationPageWidgetState extends State<TransportationPageWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                     child: Text(
                       'Accomodations',
-                      style: FlutterFlowTheme.title3.override(
-                        fontFamily: 'Open Sans',
-                        color: FlutterFlowTheme.primaryColor,
-                      ),
+                      style: FlutterFlowTheme.of(context).title3.override(
+                            fontFamily: 'Open Sans',
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                          ),
                     ),
                   ),
                 ],
@@ -143,10 +143,10 @@ class _TransportationPageWidgetState extends State<TransportationPageWidget> {
                   Expanded(
                     child: Text(
                       'Fly into Boston Logan Airport! If you\'re taking a train like Amtrak, get off at South Station to end up right downtown. Both the airport and train station are on the MBTA (aka \"The T\"), so you can get around the Boston area from there.\n\nTo get to our venue in Lincoln, MA, we recommend renting a car or carpooling. If you plan to take an Uber or Lyft, we recommend scheduling a ride back since there may be limited drivers in that area on Saturday night (here\'s how to schedule an Uber).\n\nTo get to our house in Malden for Sunday brunch, take the Orange Line north to Malden Center, and walk for about 10 minutes! Since it\'s Sunday, there will also be free street parking available in the area. Our address is 20 Park View Terrace, Malden, MA 02148.',
-                      style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Cormorant Garamond',
-                        color: FlutterFlowTheme.darkText,
-                      ),
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Cormorant Garamond',
+                            color: FlutterFlowTheme.of(context).darkText,
+                          ),
                     ),
                   ),
                 ],

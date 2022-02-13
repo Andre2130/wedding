@@ -45,7 +45,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
             automaticallyImplyLeading: false,
             title: Text(
               'Events',
-              style: FlutterFlowTheme.title2,
+              style: FlutterFlowTheme.of(context).title2,
             ),
             actions: [],
             centerTitle: false,
@@ -64,11 +64,11 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                 ),
               );
             },
-            backgroundColor: FlutterFlowTheme.primaryColor,
+            backgroundColor: FlutterFlowTheme.of(context).primaryColor,
             elevation: 8,
             child: Icon(
               Icons.add_rounded,
-              color: FlutterFlowTheme.lightText,
+              color: FlutterFlowTheme.of(context).lightText,
               size: 32,
             ),
           ),
@@ -126,7 +126,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                         child: Container(
                           width: 100,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.darkLines,
+                            color: FlutterFlowTheme.of(context).darkLines,
                             boxShadow: [
                               BoxShadow(
                                 blurRadius: 5,
@@ -169,11 +169,15 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                           children: [
                                             Text(
                                               listViewEventsRecord.name,
-                                              style: FlutterFlowTheme.title2,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .title2,
                                             ),
                                             Text(
                                               listViewEventsRecord.description,
-                                              style: FlutterFlowTheme.subtitle2,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .subtitle2,
                                             ),
                                           ],
                                         ),
@@ -190,14 +194,17 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                             child: Text(
                                               dateTimeFormat('yMd',
                                                   listViewEventsRecord.date),
-                                              style: FlutterFlowTheme.subtitle2,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .subtitle2,
                                             ),
                                           ),
                                           Text(
                                             dateTimeFormat('jms',
                                                 listViewEventsRecord.time),
                                             textAlign: TextAlign.end,
-                                            style: FlutterFlowTheme.title3,
+                                            style: FlutterFlowTheme.of(context)
+                                                .title3,
                                           ),
                                         ],
                                       ),

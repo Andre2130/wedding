@@ -31,7 +31,7 @@ class _GuestListWidgetState extends State<GuestListWidget> {
           buttonSize: 60,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: FlutterFlowTheme.grayIcon,
+            color: FlutterFlowTheme.of(context).grayIcon,
             size: 30,
           ),
           onPressed: () async {
@@ -40,10 +40,10 @@ class _GuestListWidgetState extends State<GuestListWidget> {
         ),
         title: Text(
           'Start Chat',
-          style: FlutterFlowTheme.title3.override(
-            fontFamily: 'Winlove',
-            useGoogleFonts: false,
-          ),
+          style: FlutterFlowTheme.of(context).title3.override(
+                fontFamily: 'Winlove',
+                useGoogleFonts: false,
+              ),
         ),
         actions: [],
         centerTitle: false,
@@ -92,10 +92,10 @@ class _GuestListWidgetState extends State<GuestListWidget> {
                     child: Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.grayIcon,
+                        color: FlutterFlowTheme.of(context).grayIcon,
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(
-                          color: FlutterFlowTheme.lightLines,
+                          color: FlutterFlowTheme.of(context).lightLines,
                           width: 2,
                         ),
                       ),
@@ -124,13 +124,13 @@ class _GuestListWidgetState extends State<GuestListWidget> {
                                     EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                                 child: Text(
                                   columnGuestsRecord.guestName,
-                                  style: FlutterFlowTheme.subtitle1,
+                                  style: FlutterFlowTheme.of(context).subtitle1,
                                 ),
                               ),
                             ),
                             Icon(
                               Icons.chat_bubble_outline,
-                              color: FlutterFlowTheme.primaryColor,
+                              color: FlutterFlowTheme.of(context).primaryColor,
                               size: 24,
                             ),
                           ],

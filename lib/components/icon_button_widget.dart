@@ -25,7 +25,7 @@ class _IconButtonWidgetState extends State<IconButtonWidget> {
       width: MediaQuery.of(context).size.width * 0.44,
       height: 110,
       decoration: BoxDecoration(
-        color: FlutterFlowTheme.lightText,
+        color: FlutterFlowTheme.of(context).lightText,
         boxShadow: [
           BoxShadow(
             blurRadius: 4,
@@ -51,7 +51,7 @@ class _IconButtonWidgetState extends State<IconButtonWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
               child: Text(
                 widget.title,
-                style: FlutterFlowTheme.bodyText1,
+                style: FlutterFlowTheme.of(context).bodyText1,
               ),
             ),
           ],

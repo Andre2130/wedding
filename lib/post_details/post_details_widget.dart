@@ -48,7 +48,7 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
           buttonSize: 60,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: FlutterFlowTheme.grayIcon,
+            color: FlutterFlowTheme.of(context).grayIcon,
             size: 30,
           ),
           onPressed: () async {
@@ -136,7 +136,7 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
                                   EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                               child: Text(
                                 widget.postDetails.postDisplayName,
-                                style: FlutterFlowTheme.subtitle1,
+                                style: FlutterFlowTheme.of(context).subtitle1,
                               ),
                             ),
                           ],
@@ -144,7 +144,7 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
                         Text(
                           dateTimeFormat(
                               'relative', widget.postDetails.postCreated),
-                          style: FlutterFlowTheme.bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyText1,
                         ),
                       ],
                     ),
@@ -158,7 +158,7 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
                         Expanded(
                           child: Text(
                             widget.postDetails.postDescription,
-                            style: FlutterFlowTheme.subtitle1,
+                            style: FlutterFlowTheme.of(context).subtitle1,
                           ),
                         ),
                       ],
@@ -169,7 +169,7 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
                     child: Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.darkLines,
+                        color: FlutterFlowTheme.of(context).darkLines,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Column(
@@ -187,7 +187,8 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
                                   children: [
                                     Icon(
                                       Icons.forum_outlined,
-                                      color: FlutterFlowTheme.grayIcon,
+                                      color:
+                                          FlutterFlowTheme.of(context).grayIcon,
                                       size: 24,
                                     ),
                                     Padding(
@@ -195,18 +196,21 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
                                           12, 0, 0, 0),
                                       child: Text(
                                         'Comments',
-                                        style:
-                                            FlutterFlowTheme.bodyText1.override(
-                                          fontFamily: 'Cormorant Garamond',
-                                          color: FlutterFlowTheme.grayIcon,
-                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Cormorant Garamond',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .grayIcon,
+                                            ),
                                       ),
                                     ),
                                   ],
                                 ),
                                 Text(
                                   functions.numCommentsStr(widget.postDetails),
-                                  style: FlutterFlowTheme.bodyText1,
+                                  style: FlutterFlowTheme.of(context).bodyText1,
                                 ),
                               ],
                             ),
@@ -249,7 +253,8 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
                                       child: Container(
                                         width: double.infinity,
                                         decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.grayIcon,
+                                          color: FlutterFlowTheme.of(context)
+                                              .grayIcon,
                                           borderRadius:
                                               BorderRadius.circular(8),
                                         ),
@@ -333,24 +338,24 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
                                                                     .guestName,
                                                                 'Wedding Attendee',
                                                               ),
-                                                              style:
-                                                                  FlutterFlowTheme
-                                                                      .subtitle1
-                                                                      .override(
-                                                                fontFamily:
-                                                                    'Cormorant Garamond',
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .subtitle1
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Cormorant Garamond',
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
                                                             ),
                                                           ),
                                                           Text(
                                                             columnCommentsRecord
                                                                 .comment,
-                                                            style:
-                                                                FlutterFlowTheme
-                                                                    .bodyText1,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyText1,
                                                           ),
                                                           Row(
                                                             mainAxisSize:
@@ -367,17 +372,17 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
                                                                             0),
                                                                 child: Text(
                                                                   'Posted:',
-                                                                  style: FlutterFlowTheme
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
                                                                       .bodyText1
                                                                       .override(
-                                                                    fontFamily:
-                                                                        'Cormorant Garamond',
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                  ),
+                                                                        fontFamily:
+                                                                            'Cormorant Garamond',
+                                                                        fontSize:
+                                                                            12,
+                                                                        fontWeight:
+                                                                            FontWeight.w500,
+                                                                      ),
                                                                 ),
                                                               ),
                                                               Padding(
@@ -393,17 +398,17 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
                                                                       'relative',
                                                                       columnCommentsRecord
                                                                           .createdAt),
-                                                                  style: FlutterFlowTheme
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
                                                                       .bodyText1
                                                                       .override(
-                                                                    fontFamily:
-                                                                        'Cormorant Garamond',
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                  ),
+                                                                        fontFamily:
+                                                                            'Cormorant Garamond',
+                                                                        fontSize:
+                                                                            12,
+                                                                        fontWeight:
+                                                                            FontWeight.w500,
+                                                                      ),
                                                                 ),
                                                               ),
                                                             ],
@@ -420,8 +425,10 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
                                                     buttonSize: 32,
                                                     icon: Icon(
                                                       Icons.favorite_border,
-                                                      color: FlutterFlowTheme
-                                                          .grayIcon,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .grayIcon,
                                                       size: 16,
                                                     ),
                                                     onPressed: () {
@@ -453,7 +460,7 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
             width: double.infinity,
             height: 100,
             decoration: BoxDecoration(
-              color: FlutterFlowTheme.tertiaryColor,
+              color: FlutterFlowTheme.of(context).tertiaryColor,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(0),
                 bottomRight: Radius.circular(0),
@@ -474,10 +481,12 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: 'Leave a comment here...',
-                          hintStyle: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'Cormorant Garamond',
-                            color: FlutterFlowTheme.grayIcon,
-                          ),
+                          hintStyle: FlutterFlowTheme.of(context)
+                              .bodyText1
+                              .override(
+                                fontFamily: 'Cormorant Garamond',
+                                color: FlutterFlowTheme.of(context).grayIcon,
+                              ),
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
@@ -501,10 +510,10 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
                           contentPadding:
                               EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                         ),
-                        style: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Cormorant Garamond',
-                          color: FlutterFlowTheme.lightText,
-                        ),
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Cormorant Garamond',
+                              color: FlutterFlowTheme.of(context).lightText,
+                            ),
                       ),
                     ),
                   ),
@@ -532,11 +541,11 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
                       options: FFButtonOptions(
                         width: 70,
                         height: 40,
-                        color: FlutterFlowTheme.primaryColor,
-                        textStyle: FlutterFlowTheme.title3.override(
-                          fontFamily: 'Open Sans',
-                          color: FlutterFlowTheme.lightText,
-                        ),
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                        textStyle: FlutterFlowTheme.of(context).title3.override(
+                              fontFamily: 'Open Sans',
+                              color: FlutterFlowTheme.of(context).lightText,
+                            ),
                         elevation: 2,
                         borderSide: BorderSide(
                           color: Colors.transparent,

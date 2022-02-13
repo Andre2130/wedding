@@ -80,10 +80,10 @@ class _PostCreateWidgetState extends State<PostCreateWidget>
                   children: [
                     Text(
                       'Create Post',
-                      style: FlutterFlowTheme.title2.override(
-                        fontFamily: 'Poppins',
-                        fontSize: 20,
-                      ),
+                      style: FlutterFlowTheme.of(context).title2.override(
+                            fontFamily: 'Poppins',
+                            fontSize: 20,
+                          ),
                     ),
                     FlutterFlowIconButton(
                       borderColor: Colors.transparent,
@@ -92,7 +92,7 @@ class _PostCreateWidgetState extends State<PostCreateWidget>
                       buttonSize: 44,
                       icon: Icon(
                         Icons.close_rounded,
-                        color: FlutterFlowTheme.grayIcon,
+                        color: FlutterFlowTheme.of(context).grayIcon,
                         size: 24,
                       ),
                       onPressed: () async {
@@ -110,8 +110,8 @@ class _PostCreateWidgetState extends State<PostCreateWidget>
                         await selectMediaWithSourceBottomSheet(
                       context: context,
                       allowPhoto: true,
-                      backgroundColor: FlutterFlowTheme.lightText,
-                      textColor: FlutterFlowTheme.darkText,
+                      backgroundColor: FlutterFlowTheme.of(context).lightText,
+                      textColor: FlutterFlowTheme.of(context).darkText,
                       pickerFontFamily: 'Cormorant Garamond',
                     );
                     if (selectedMedia != null &&
@@ -144,7 +144,7 @@ class _PostCreateWidgetState extends State<PostCreateWidget>
                     width: double.infinity,
                     height: 370,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.lightText,
+                      color: FlutterFlowTheme.of(context).lightText,
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: Image.asset(
@@ -225,7 +225,7 @@ class _PostCreateWidgetState extends State<PostCreateWidget>
                             await selectMediaWithSourceBottomSheet(
                           context: context,
                           allowPhoto: true,
-                          textColor: FlutterFlowTheme.tertiaryColor,
+                          textColor: FlutterFlowTheme.of(context).tertiaryColor,
                           pickerFontFamily: 'Cormorant Garamond',
                         );
                         if (selectedMedia != null &&
@@ -258,7 +258,7 @@ class _PostCreateWidgetState extends State<PostCreateWidget>
                         width: 60,
                         height: 60,
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.lightText,
+                          color: FlutterFlowTheme.of(context).lightText,
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Stack(
@@ -307,33 +307,40 @@ class _PostCreateWidgetState extends State<PostCreateWidget>
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: 'Display Name',
-                              labelStyle: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Cormorant Garamond',
-                                color: FlutterFlowTheme.grayIcon,
-                              ),
+                              labelStyle: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Cormorant Garamond',
+                                    color:
+                                        FlutterFlowTheme.of(context).grayIcon,
+                                  ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: FlutterFlowTheme.lightLines,
+                                  color:
+                                      FlutterFlowTheme.of(context).lightLines,
                                   width: 1,
                                 ),
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: FlutterFlowTheme.lightLines,
+                                  color:
+                                      FlutterFlowTheme.of(context).lightLines,
                                   width: 1,
                                 ),
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               filled: true,
-                              fillColor: FlutterFlowTheme.lightText,
+                              fillColor: FlutterFlowTheme.of(context).lightText,
                               contentPadding: EdgeInsetsDirectional.fromSTEB(
                                   20, 24, 20, 24),
                             ),
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Cormorant Garamond',
-                              color: FlutterFlowTheme.darkText,
-                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Cormorant Garamond',
+                                  color: FlutterFlowTheme.of(context).darkText,
+                                ),
                           ),
                         ),
                       ),
@@ -354,24 +361,24 @@ class _PostCreateWidgetState extends State<PostCreateWidget>
                           hintText: 'Leave a message for the couple....',
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.lightLines,
+                              color: FlutterFlowTheme.of(context).lightLines,
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.lightLines,
+                              color: FlutterFlowTheme.of(context).lightLines,
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           filled: true,
-                          fillColor: FlutterFlowTheme.lightText,
+                          fillColor: FlutterFlowTheme.of(context).lightText,
                           contentPadding:
                               EdgeInsetsDirectional.fromSTEB(20, 24, 20, 24),
                         ),
-                        style: FlutterFlowTheme.bodyText1,
+                        style: FlutterFlowTheme.of(context).bodyText1,
                         textAlign: TextAlign.start,
                         maxLines: 4,
                       ),
@@ -411,11 +418,11 @@ class _PostCreateWidgetState extends State<PostCreateWidget>
                   options: FFButtonOptions(
                     width: 290,
                     height: 50,
-                    color: FlutterFlowTheme.primaryColor,
-                    textStyle: FlutterFlowTheme.title3.override(
-                      fontFamily: 'Open Sans',
-                      color: FlutterFlowTheme.lightText,
-                    ),
+                    color: FlutterFlowTheme.of(context).primaryColor,
+                    textStyle: FlutterFlowTheme.of(context).title3.override(
+                          fontFamily: 'Open Sans',
+                          color: FlutterFlowTheme.of(context).lightText,
+                        ),
                     elevation: 3,
                     borderSide: BorderSide(
                       color: Colors.transparent,

@@ -75,11 +75,11 @@ class _MainMapWidgetState extends State<MainMapWidget> {
           key: scaffoldKey,
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.primaryColor,
+            backgroundColor: FlutterFlowTheme.of(context).primaryColor,
             automaticallyImplyLeading: true,
             title: Text(
               'LetsLink',
-              style: FlutterFlowTheme.bodyText1,
+              style: FlutterFlowTheme.of(context).bodyText1,
             ),
             actions: [],
             centerTitle: true,

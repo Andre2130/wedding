@@ -19,7 +19,7 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.lightText,
+      backgroundColor: FlutterFlowTheme.of(context).lightText,
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -34,10 +34,10 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                 children: [
                   Text(
                     'PROCESSIONAL',
-                    style: FlutterFlowTheme.subtitle2.override(
-                      fontFamily: 'Cormorant Garamond',
-                      fontSize: 32,
-                    ),
+                    style: FlutterFlowTheme.of(context).subtitle2.override(
+                          fontFamily: 'Cormorant Garamond',
+                          fontSize: 32,
+                        ),
                   ),
                 ],
               ),
@@ -50,11 +50,11 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                   Expanded(
                     child: Text(
                       'Marry Me, Train\nIsn’t She Lovely, Stevie Wonder',
-                      style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Cormorant Garamond',
-                        color: FlutterFlowTheme.darkText,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Cormorant Garamond',
+                            color: FlutterFlowTheme.of(context).darkText,
+                            fontWeight: FontWeight.w500,
+                          ),
                     ),
                   ),
                 ],
@@ -68,10 +68,10 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                   Expanded(
                     child: Text(
                       'WELCOME\n\nEXCHANGE OF VOWS\n\nEXCHANGE OF RINGS \n\nPRESENTATION OF THE NEWLYWEDS',
-                      style: FlutterFlowTheme.subtitle2.override(
-                        fontFamily: 'Cormorant Garamond',
-                        fontSize: 32,
-                      ),
+                      style: FlutterFlowTheme.of(context).subtitle2.override(
+                            fontFamily: 'Cormorant Garamond',
+                            fontSize: 32,
+                          ),
                     ),
                   ),
                 ],
@@ -87,10 +87,10 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                     children: [
                       Text(
                         'RECESSIONAL',
-                        style: FlutterFlowTheme.subtitle2.override(
-                          fontFamily: 'Cormorant Garamond',
-                          fontSize: 32,
-                        ),
+                        style: FlutterFlowTheme.of(context).subtitle2.override(
+                              fontFamily: 'Cormorant Garamond',
+                              fontSize: 32,
+                            ),
                       ),
                     ],
                   ),
@@ -105,11 +105,13 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
                           child: Text(
                             'Just The Way You Are, Bruno Mars',
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Cormorant Garamond',
-                              color: FlutterFlowTheme.darkText,
-                              fontWeight: FontWeight.w500,
-                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Cormorant Garamond',
+                                  color: FlutterFlowTheme.of(context).darkText,
+                                  fontWeight: FontWeight.w500,
+                                ),
                           ),
                         ),
                       ),
@@ -127,7 +129,7 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                   thickness: 1,
                   indent: 0,
                   endIndent: 0,
-                  color: FlutterFlowTheme.lightLines,
+                  color: FlutterFlowTheme.of(context).lightLines,
                 ),
               ],
             ),
@@ -141,7 +143,7 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                     children: [
                       Text(
                         'OFFICIANT',
-                        style: FlutterFlowTheme.subtitle2,
+                        style: FlutterFlowTheme.of(context).subtitle2,
                       ),
                     ],
                   ),
@@ -156,11 +158,13 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
                           child: Text(
                             'The Pastors Name',
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Cormorant Garamond',
-                              color: FlutterFlowTheme.darkText,
-                              fontWeight: FontWeight.w500,
-                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Cormorant Garamond',
+                                  color: FlutterFlowTheme.of(context).darkText,
+                                  fontWeight: FontWeight.w500,
+                                ),
                           ),
                         ),
                       ),
@@ -172,7 +176,7 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                   thickness: 1,
                   indent: 12,
                   endIndent: 12,
-                  color: FlutterFlowTheme.lightLines,
+                  color: FlutterFlowTheme.of(context).lightLines,
                 ),
               ],
             ),
@@ -186,7 +190,7 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                     children: [
                       Text(
                         'PARENTS OF THE BRIDE',
-                        style: FlutterFlowTheme.subtitle2,
+                        style: FlutterFlowTheme.of(context).subtitle2,
                       ),
                     ],
                   ),
@@ -201,11 +205,13 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
                           child: Text(
                             'The Pastors Name',
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Cormorant Garamond',
-                              color: FlutterFlowTheme.darkText,
-                              fontWeight: FontWeight.w500,
-                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Cormorant Garamond',
+                                  color: FlutterFlowTheme.of(context).darkText,
+                                  fontWeight: FontWeight.w500,
+                                ),
                           ),
                         ),
                       ),
@@ -217,7 +223,7 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                   thickness: 1,
                   indent: 12,
                   endIndent: 12,
-                  color: FlutterFlowTheme.lightLines,
+                  color: FlutterFlowTheme.of(context).lightLines,
                 ),
               ],
             ),
@@ -231,7 +237,7 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                     children: [
                       Text(
                         'PARENTS OF THE GROOM',
-                        style: FlutterFlowTheme.subtitle2,
+                        style: FlutterFlowTheme.of(context).subtitle2,
                       ),
                     ],
                   ),
@@ -246,11 +252,13 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
                           child: Text(
                             'The Pastors Name',
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Cormorant Garamond',
-                              color: FlutterFlowTheme.darkText,
-                              fontWeight: FontWeight.w500,
-                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Cormorant Garamond',
+                                  color: FlutterFlowTheme.of(context).darkText,
+                                  fontWeight: FontWeight.w500,
+                                ),
                           ),
                         ),
                       ),
@@ -262,7 +270,7 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                   thickness: 1,
                   indent: 12,
                   endIndent: 12,
-                  color: FlutterFlowTheme.lightLines,
+                  color: FlutterFlowTheme.of(context).lightLines,
                 ),
               ],
             ),
@@ -276,7 +284,7 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                     children: [
                       Text(
                         'BRIDES PARTY',
-                        style: FlutterFlowTheme.subtitle2,
+                        style: FlutterFlowTheme.of(context).subtitle2,
                       ),
                     ],
                   ),
@@ -291,11 +299,13 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
                           child: Text(
                             'The Pastors Name',
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Cormorant Garamond',
-                              color: FlutterFlowTheme.darkText,
-                              fontWeight: FontWeight.w500,
-                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Cormorant Garamond',
+                                  color: FlutterFlowTheme.of(context).darkText,
+                                  fontWeight: FontWeight.w500,
+                                ),
                           ),
                         ),
                       ),
@@ -307,7 +317,7 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                   thickness: 1,
                   indent: 12,
                   endIndent: 12,
-                  color: FlutterFlowTheme.lightLines,
+                  color: FlutterFlowTheme.of(context).lightLines,
                 ),
               ],
             ),
@@ -323,7 +333,7 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                       children: [
                         Text(
                           'GROOMS PARTY',
-                          style: FlutterFlowTheme.subtitle2,
+                          style: FlutterFlowTheme.of(context).subtitle2,
                         ),
                       ],
                     ),
@@ -339,11 +349,14 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                                 EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
                             child: Text(
                               'The Pastors Name',
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Cormorant Garamond',
-                                color: FlutterFlowTheme.darkText,
-                                fontWeight: FontWeight.w500,
-                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Cormorant Garamond',
+                                    color:
+                                        FlutterFlowTheme.of(context).darkText,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                             ),
                           ),
                         ),
@@ -355,7 +368,7 @@ class _CeremonyProgramWidgetState extends State<CeremonyProgramWidget> {
                     thickness: 1,
                     indent: 12,
                     endIndent: 12,
-                    color: FlutterFlowTheme.lightLines,
+                    color: FlutterFlowTheme.of(context).lightLines,
                   ),
                 ],
               ),

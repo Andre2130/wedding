@@ -28,7 +28,7 @@ class _MessagesPageWidgetState extends State<MessagesPageWidget> {
         automaticallyImplyLeading: false,
         title: Text(
           'Messages',
-          style: FlutterFlowTheme.title2,
+          style: FlutterFlowTheme.of(context).title2,
         ),
         actions: [],
         centerTitle: false,
@@ -47,11 +47,11 @@ class _MessagesPageWidgetState extends State<MessagesPageWidget> {
             ),
           );
         },
-        backgroundColor: FlutterFlowTheme.primaryColor,
+        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         elevation: 8,
         child: Icon(
           Icons.person_add_rounded,
-          color: FlutterFlowTheme.lightText,
+          color: FlutterFlowTheme.of(context).lightText,
           size: 28,
         ),
       ),
@@ -120,8 +120,8 @@ class _MessagesPageWidgetState extends State<MessagesPageWidget> {
                             .contains(currentUserReference),
                         title: chatInfo.chatPreviewTitle(),
                         userProfilePic: chatInfo.chatPreviewPic(),
-                        color: FlutterFlowTheme.darkLines,
-                        unreadColor: FlutterFlowTheme.primaryColor,
+                        color: FlutterFlowTheme.of(context).darkLines,
+                        unreadColor: FlutterFlowTheme.of(context).primaryColor,
                         titleTextStyle: GoogleFonts.getFont(
                           'Cormorant Garamond',
                           color: Colors.black,
@@ -130,13 +130,13 @@ class _MessagesPageWidgetState extends State<MessagesPageWidget> {
                         ),
                         dateTextStyle: GoogleFonts.getFont(
                           'Cormorant Garamond',
-                          color: FlutterFlowTheme.darkLines,
+                          color: FlutterFlowTheme.of(context).darkLines,
                           fontWeight: FontWeight.w600,
                           fontSize: 14,
                         ),
                         previewTextStyle: GoogleFonts.getFont(
                           'Cormorant Garamond',
-                          color: FlutterFlowTheme.grayIcon,
+                          color: FlutterFlowTheme.of(context).grayIcon,
                           fontWeight: FontWeight.w600,
                           fontSize: 14,
                         ),

@@ -61,7 +61,7 @@ class _RsvpModalWidgetState extends State<RsvpModalWidget>
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.tertiaryColor,
+          color: FlutterFlowTheme.of(context).tertiaryColor,
           boxShadow: [
             BoxShadow(
               blurRadius: 6,
@@ -91,7 +91,7 @@ class _RsvpModalWidgetState extends State<RsvpModalWidget>
                     buttonSize: 40,
                     icon: Icon(
                       Icons.close_rounded,
-                      color: FlutterFlowTheme.grayIcon,
+                      color: FlutterFlowTheme.of(context).grayIcon,
                       size: 24,
                     ),
                     onPressed: () async {
@@ -104,10 +104,10 @@ class _RsvpModalWidgetState extends State<RsvpModalWidget>
                       child: Text(
                         'RSVP',
                         textAlign: TextAlign.start,
-                        style: FlutterFlowTheme.title3.override(
-                          fontFamily: 'Open Sans',
-                          color: FlutterFlowTheme.lightText,
-                        ),
+                        style: FlutterFlowTheme.of(context).title3.override(
+                              fontFamily: 'Open Sans',
+                              color: FlutterFlowTheme.of(context).lightText,
+                            ),
                       ),
                     ),
                   ),
@@ -117,27 +117,27 @@ class _RsvpModalWidgetState extends State<RsvpModalWidget>
                 padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                 child: Text(
                   'Alethiah & Brenden',
-                  style: FlutterFlowTheme.title1.override(
-                    fontFamily: 'Montserrat',
-                    color: FlutterFlowTheme.lightText,
-                  ),
+                  style: FlutterFlowTheme.of(context).title1.override(
+                        fontFamily: 'Montserrat',
+                        color: FlutterFlowTheme.of(context).lightText,
+                      ),
                 ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                 child: Text(
                   'SEP. 4, 2021',
-                  style: FlutterFlowTheme.title2.override(
-                    fontFamily: 'Poppins',
-                    color: FlutterFlowTheme.primaryColor,
-                  ),
+                  style: FlutterFlowTheme.of(context).title2.override(
+                        fontFamily: 'Poppins',
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                      ),
                 ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                 child: Text(
                   'LINCOLN, MA',
-                  style: FlutterFlowTheme.subtitle2,
+                  style: FlutterFlowTheme.of(context).subtitle2,
                 ),
               ),
               Padding(
@@ -147,25 +147,25 @@ class _RsvpModalWidgetState extends State<RsvpModalWidget>
                   obscureText: false,
                   decoration: InputDecoration(
                     labelText: 'Your name...',
-                    labelStyle: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Cormorant Garamond',
-                      fontSize: 16,
-                    ),
+                    labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Cormorant Garamond',
+                          fontSize: 16,
+                        ),
                     hintText: 'Please enter the name on the invite...',
-                    hintStyle: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Cormorant Garamond',
-                      fontSize: 16,
-                    ),
+                    hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Cormorant Garamond',
+                          fontSize: 16,
+                        ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.darkLines,
+                        color: FlutterFlowTheme.of(context).darkLines,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.darkLines,
+                        color: FlutterFlowTheme.of(context).darkLines,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(8),
@@ -173,12 +173,12 @@ class _RsvpModalWidgetState extends State<RsvpModalWidget>
                     contentPadding:
                         EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
                   ),
-                  style: FlutterFlowTheme.bodyText1.override(
-                    fontFamily: 'Cormorant Garamond',
-                    color: FlutterFlowTheme.lightText,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Cormorant Garamond',
+                        color: FlutterFlowTheme.of(context).lightText,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
                 ),
               ),
               Padding(
@@ -189,17 +189,17 @@ class _RsvpModalWidgetState extends State<RsvpModalWidget>
                   children: [
                     Text(
                       'How many in your party?',
-                      style: FlutterFlowTheme.bodyText1,
+                      style: FlutterFlowTheme.of(context).bodyText1,
                     ),
                     Container(
                       width: 160,
                       height: 50,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.darkText,
+                        color: FlutterFlowTheme.of(context).darkText,
                         borderRadius: BorderRadius.circular(25),
                         shape: BoxShape.rectangle,
                         border: Border.all(
-                          color: FlutterFlowTheme.darkLines,
+                          color: FlutterFlowTheme.of(context).darkLines,
                           width: 1,
                         ),
                       ),
@@ -207,23 +207,25 @@ class _RsvpModalWidgetState extends State<RsvpModalWidget>
                         decrementIconBuilder: (enabled) => FaIcon(
                           FontAwesomeIcons.minus,
                           color: enabled
-                              ? FlutterFlowTheme.grayIcon
+                              ? FlutterFlowTheme.of(context).grayIcon
                               : Color(0xFFEEEEEE),
                           size: 20,
                         ),
                         incrementIconBuilder: (enabled) => FaIcon(
                           FontAwesomeIcons.plus,
                           color: enabled
-                              ? FlutterFlowTheme.primaryColor
+                              ? FlutterFlowTheme.of(context).primaryColor
                               : Color(0xFFEEEEEE),
                           size: 20,
                         ),
                         countBuilder: (count) => Text(
                           count.toString(),
-                          style: FlutterFlowTheme.subtitle1.override(
-                            fontFamily: 'Cormorant Garamond',
-                            color: FlutterFlowTheme.lightText,
-                          ),
+                          style: FlutterFlowTheme.of(context)
+                              .subtitle1
+                              .override(
+                                fontFamily: 'Cormorant Garamond',
+                                color: FlutterFlowTheme.of(context).lightText,
+                              ),
                         ),
                         count: countControllerValue ??= 1,
                         updateCount: (count) =>
@@ -241,25 +243,25 @@ class _RsvpModalWidgetState extends State<RsvpModalWidget>
                   obscureText: false,
                   decoration: InputDecoration(
                     labelText: 'Leave a message for the couple...',
-                    labelStyle: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Cormorant Garamond',
-                      fontSize: 16,
-                    ),
+                    labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Cormorant Garamond',
+                          fontSize: 16,
+                        ),
                     hintText: 'Let the couple know how excited you are...',
-                    hintStyle: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Cormorant Garamond',
-                      fontSize: 16,
-                    ),
+                    hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Cormorant Garamond',
+                          fontSize: 16,
+                        ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.darkLines,
+                        color: FlutterFlowTheme.of(context).darkLines,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.darkLines,
+                        color: FlutterFlowTheme.of(context).darkLines,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(8),
@@ -267,12 +269,12 @@ class _RsvpModalWidgetState extends State<RsvpModalWidget>
                     contentPadding:
                         EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
                   ),
-                  style: FlutterFlowTheme.bodyText1.override(
-                    fontFamily: 'Cormorant Garamond',
-                    color: FlutterFlowTheme.lightText,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Cormorant Garamond',
+                        color: FlutterFlowTheme.of(context).lightText,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
                   textAlign: TextAlign.start,
                   maxLines: 6,
                 ),
@@ -287,11 +289,11 @@ class _RsvpModalWidgetState extends State<RsvpModalWidget>
                   options: FFButtonOptions(
                     width: 290,
                     height: 50,
-                    color: FlutterFlowTheme.primaryColor,
-                    textStyle: FlutterFlowTheme.title3.override(
-                      fontFamily: 'Open Sans',
-                      color: FlutterFlowTheme.lightText,
-                    ),
+                    color: FlutterFlowTheme.of(context).primaryColor,
+                    textStyle: FlutterFlowTheme.of(context).title3.override(
+                          fontFamily: 'Open Sans',
+                          color: FlutterFlowTheme.of(context).lightText,
+                        ),
                     elevation: 3,
                     borderSide: BorderSide(
                       color: Colors.transparent,

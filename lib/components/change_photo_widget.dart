@@ -75,7 +75,7 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.tertiaryColor,
+          color: FlutterFlowTheme.of(context).tertiaryColor,
           boxShadow: [
             BoxShadow(
               blurRadius: 6,
@@ -105,7 +105,7 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
                     buttonSize: 40,
                     icon: Icon(
                       Icons.close_rounded,
-                      color: FlutterFlowTheme.grayIcon,
+                      color: FlutterFlowTheme.of(context).grayIcon,
                       size: 24,
                     ),
                     onPressed: () async {
@@ -118,12 +118,12 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
                       child: Text(
                         'Change Profile Photo',
                         textAlign: TextAlign.start,
-                        style: FlutterFlowTheme.title3.override(
-                          fontFamily: 'Winlove',
-                          color: FlutterFlowTheme.lightText,
-                          fontSize: 20,
-                          useGoogleFonts: false,
-                        ),
+                        style: FlutterFlowTheme.of(context).title3.override(
+                              fontFamily: 'Winlove',
+                              color: FlutterFlowTheme.of(context).lightText,
+                              fontSize: 20,
+                              useGoogleFonts: false,
+                            ),
                       ),
                     ),
                   ),
@@ -152,8 +152,8 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
                         await selectMediaWithSourceBottomSheet(
                       context: context,
                       allowPhoto: true,
-                      backgroundColor: FlutterFlowTheme.darkText,
-                      textColor: FlutterFlowTheme.lightText,
+                      backgroundColor: FlutterFlowTheme.of(context).darkText,
+                      textColor: FlutterFlowTheme.of(context).lightText,
                       pickerFontFamily: 'Cormorant Garamond',
                     );
                     if (selectedMedia != null &&
@@ -186,11 +186,11 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
                   options: FFButtonOptions(
                     width: 150,
                     height: 50,
-                    color: FlutterFlowTheme.tertiaryColor,
-                    textStyle: FlutterFlowTheme.subtitle2,
+                    color: FlutterFlowTheme.of(context).tertiaryColor,
+                    textStyle: FlutterFlowTheme.of(context).subtitle2,
                     elevation: 3,
                     borderSide: BorderSide(
-                      color: FlutterFlowTheme.darkLines,
+                      color: FlutterFlowTheme.of(context).darkLines,
                       width: 1,
                     ),
                     borderRadius: 8,
@@ -210,11 +210,11 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
                   options: FFButtonOptions(
                     width: 290,
                     height: 50,
-                    color: FlutterFlowTheme.primaryColor,
-                    textStyle: FlutterFlowTheme.title3.override(
-                      fontFamily: 'Open Sans',
-                      color: FlutterFlowTheme.lightText,
-                    ),
+                    color: FlutterFlowTheme.of(context).primaryColor,
+                    textStyle: FlutterFlowTheme.of(context).title3.override(
+                          fontFamily: 'Open Sans',
+                          color: FlutterFlowTheme.of(context).lightText,
+                        ),
                     elevation: 3,
                     borderSide: BorderSide(
                       color: Colors.transparent,

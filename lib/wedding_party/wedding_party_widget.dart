@@ -19,7 +19,7 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.lightText,
+      backgroundColor: FlutterFlowTheme.of(context).lightText,
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -31,7 +31,7 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
               width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.9,
               decoration: BoxDecoration(
-                color: FlutterFlowTheme.lightText,
+                color: FlutterFlowTheme.of(context).lightText,
               ),
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 44),
@@ -42,10 +42,12 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                     children: [
                       TabBar(
                         isScrollable: true,
-                        labelColor: FlutterFlowTheme.primaryColor,
-                        unselectedLabelColor: FlutterFlowTheme.grayIcon,
-                        labelStyle: FlutterFlowTheme.subtitle2,
-                        indicatorColor: FlutterFlowTheme.primaryColor,
+                        labelColor: FlutterFlowTheme.of(context).primaryColor,
+                        unselectedLabelColor:
+                            FlutterFlowTheme.of(context).grayIcon,
+                        labelStyle: FlutterFlowTheme.of(context).subtitle2,
+                        indicatorColor:
+                            FlutterFlowTheme.of(context).primaryColor,
                         indicatorWeight: 2,
                         tabs: [
                           Tab(
@@ -69,7 +71,8 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                   child: Container(
                                     width: 100,
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.lightText,
+                                      color: FlutterFlowTheme.of(context)
+                                          .lightText,
                                       borderRadius: BorderRadius.circular(8),
                                     ),
                                     child: Padding(
@@ -84,8 +87,9 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                               Card(
                                                 clipBehavior:
                                                     Clip.antiAliasWithSaveLayer,
-                                                color: FlutterFlowTheme
-                                                    .primaryColor,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
                                                 elevation: 1,
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
@@ -118,13 +122,17 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                                   children: [
                                                     Text(
                                                       'Username Here',
-                                                      style: FlutterFlowTheme
-                                                          .title3,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .title3,
                                                     ),
                                                     Text(
                                                       'Maid of Honor',
-                                                      style: FlutterFlowTheme
-                                                          .subtitle2,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .subtitle2,
                                                     ),
                                                   ],
                                                 ),
@@ -141,7 +149,8 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                                 Expanded(
                                                   child: Text(
                                                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
-                                                    style: FlutterFlowTheme
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyText1,
                                                   ),
                                                 ),
@@ -159,7 +168,8 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                   child: Container(
                                     width: 100,
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.lightText,
+                                      color: FlutterFlowTheme.of(context)
+                                          .lightText,
                                       borderRadius: BorderRadius.circular(8),
                                     ),
                                     child: Padding(
@@ -174,8 +184,9 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                               Card(
                                                 clipBehavior:
                                                     Clip.antiAliasWithSaveLayer,
-                                                color: FlutterFlowTheme
-                                                    .primaryColor,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
                                                 elevation: 1,
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
@@ -208,13 +219,17 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                                   children: [
                                                     Text(
                                                       'Username Here',
-                                                      style: FlutterFlowTheme
-                                                          .title3,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .title3,
                                                     ),
                                                     Text(
                                                       'Maid of Honor',
-                                                      style: FlutterFlowTheme
-                                                          .subtitle2,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .subtitle2,
                                                     ),
                                                   ],
                                                 ),
@@ -231,7 +246,8 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                                 Expanded(
                                                   child: Text(
                                                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
-                                                    style: FlutterFlowTheme
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyText1,
                                                   ),
                                                 ),
@@ -249,7 +265,8 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                   child: Container(
                                     width: 100,
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.lightText,
+                                      color: FlutterFlowTheme.of(context)
+                                          .lightText,
                                       borderRadius: BorderRadius.circular(8),
                                     ),
                                     child: Padding(
@@ -264,8 +281,9 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                               Card(
                                                 clipBehavior:
                                                     Clip.antiAliasWithSaveLayer,
-                                                color: FlutterFlowTheme
-                                                    .primaryColor,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
                                                 elevation: 1,
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
@@ -298,13 +316,17 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                                   children: [
                                                     Text(
                                                       'Username Here',
-                                                      style: FlutterFlowTheme
-                                                          .title3,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .title3,
                                                     ),
                                                     Text(
                                                       'Maid of Honor',
-                                                      style: FlutterFlowTheme
-                                                          .subtitle2,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .subtitle2,
                                                     ),
                                                   ],
                                                 ),
@@ -321,7 +343,8 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                                 Expanded(
                                                   child: Text(
                                                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
-                                                    style: FlutterFlowTheme
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyText1,
                                                   ),
                                                 ),
@@ -345,7 +368,8 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                   child: Container(
                                     width: 100,
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.lightText,
+                                      color: FlutterFlowTheme.of(context)
+                                          .lightText,
                                       borderRadius: BorderRadius.circular(8),
                                     ),
                                     child: Padding(
@@ -360,8 +384,9 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                               Card(
                                                 clipBehavior:
                                                     Clip.antiAliasWithSaveLayer,
-                                                color: FlutterFlowTheme
-                                                    .primaryColor,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
                                                 elevation: 1,
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
@@ -394,13 +419,17 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                                   children: [
                                                     Text(
                                                       'Username Here',
-                                                      style: FlutterFlowTheme
-                                                          .title3,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .title3,
                                                     ),
                                                     Text(
                                                       'Best Man',
-                                                      style: FlutterFlowTheme
-                                                          .subtitle2,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .subtitle2,
                                                     ),
                                                   ],
                                                 ),
@@ -417,7 +446,8 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                                 Expanded(
                                                   child: Text(
                                                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
-                                                    style: FlutterFlowTheme
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyText1,
                                                   ),
                                                 ),
@@ -435,7 +465,8 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                   child: Container(
                                     width: 100,
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.lightText,
+                                      color: FlutterFlowTheme.of(context)
+                                          .lightText,
                                       borderRadius: BorderRadius.circular(8),
                                     ),
                                     child: Padding(
@@ -450,8 +481,9 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                               Card(
                                                 clipBehavior:
                                                     Clip.antiAliasWithSaveLayer,
-                                                color: FlutterFlowTheme
-                                                    .primaryColor,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
                                                 elevation: 1,
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
@@ -484,13 +516,17 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                                   children: [
                                                     Text(
                                                       'Username Here',
-                                                      style: FlutterFlowTheme
-                                                          .title3,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .title3,
                                                     ),
                                                     Text(
                                                       'Best Man',
-                                                      style: FlutterFlowTheme
-                                                          .subtitle2,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .subtitle2,
                                                     ),
                                                   ],
                                                 ),
@@ -507,7 +543,8 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                                 Expanded(
                                                   child: Text(
                                                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
-                                                    style: FlutterFlowTheme
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyText1,
                                                   ),
                                                 ),
@@ -525,7 +562,8 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                   child: Container(
                                     width: 100,
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.lightText,
+                                      color: FlutterFlowTheme.of(context)
+                                          .lightText,
                                       borderRadius: BorderRadius.circular(8),
                                     ),
                                     child: Padding(
@@ -540,8 +578,9 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                               Card(
                                                 clipBehavior:
                                                     Clip.antiAliasWithSaveLayer,
-                                                color: FlutterFlowTheme
-                                                    .primaryColor,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
                                                 elevation: 1,
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
@@ -574,13 +613,17 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                                   children: [
                                                     Text(
                                                       'Username Here',
-                                                      style: FlutterFlowTheme
-                                                          .title3,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .title3,
                                                     ),
                                                     Text(
                                                       'Best Man',
-                                                      style: FlutterFlowTheme
-                                                          .subtitle2,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .subtitle2,
                                                     ),
                                                   ],
                                                 ),
@@ -597,7 +640,8 @@ class _WeddingPartyWidgetState extends State<WeddingPartyWidget> {
                                                 Expanded(
                                                   child: Text(
                                                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
-                                                    style: FlutterFlowTheme
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyText1,
                                                   ),
                                                 ),

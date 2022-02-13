@@ -29,7 +29,7 @@ class _SocialFeedWidgetState extends State<SocialFeedWidget> {
         automaticallyImplyLeading: false,
         title: Text(
           'Our Memories',
-          style: FlutterFlowTheme.title2,
+          style: FlutterFlowTheme.of(context).title2,
         ),
         actions: [],
         centerTitle: false,
@@ -48,11 +48,11 @@ class _SocialFeedWidgetState extends State<SocialFeedWidget> {
             ),
           );
         },
-        backgroundColor: FlutterFlowTheme.primaryColor,
+        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         elevation: 8,
         child: Icon(
           Icons.add_rounded,
-          color: FlutterFlowTheme.lightText,
+          color: FlutterFlowTheme.of(context).lightText,
           size: 32,
         ),
       ),
@@ -167,7 +167,8 @@ class _SocialFeedWidgetState extends State<SocialFeedWidget> {
                                         child: Text(
                                           listViewSocialPostsRecord
                                               .postDisplayName,
-                                          style: FlutterFlowTheme.subtitle1,
+                                          style: FlutterFlowTheme.of(context)
+                                              .subtitle1,
                                         ),
                                       ),
                                     ],
@@ -175,7 +176,8 @@ class _SocialFeedWidgetState extends State<SocialFeedWidget> {
                                   Text(
                                     dateTimeFormat('relative',
                                         listViewSocialPostsRecord.postCreated),
-                                    style: FlutterFlowTheme.bodyText1,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
                                   ),
                                 ],
                               ),
@@ -195,12 +197,15 @@ class _SocialFeedWidgetState extends State<SocialFeedWidget> {
                                       child: Text(
                                         listViewSocialPostsRecord
                                             .postDescription,
-                                        style:
-                                            FlutterFlowTheme.bodyText1.override(
-                                          fontFamily: 'Cormorant Garamond',
-                                          color: FlutterFlowTheme.darkText,
-                                          fontSize: 16,
-                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Cormorant Garamond',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .darkText,
+                                              fontSize: 16,
+                                            ),
                                       ),
                                     ),
                                   ),
@@ -221,7 +226,8 @@ class _SocialFeedWidgetState extends State<SocialFeedWidget> {
                                     buttonSize: 44,
                                     icon: Icon(
                                       Icons.forum_outlined,
-                                      color: FlutterFlowTheme.grayIcon,
+                                      color:
+                                          FlutterFlowTheme.of(context).grayIcon,
                                       size: 24,
                                     ),
                                     onPressed: () {
@@ -231,10 +237,12 @@ class _SocialFeedWidgetState extends State<SocialFeedWidget> {
                                   Text(
                                     functions.numCommentsStr(
                                         listViewSocialPostsRecord),
-                                    style: FlutterFlowTheme.bodyText1.override(
-                                      fontFamily: 'Dancing Script',
-                                      fontSize: 16,
-                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Dancing Script',
+                                          fontSize: 16,
+                                        ),
                                   ),
                                 ],
                               ),

@@ -134,11 +134,11 @@ class _SplashScreenWelcomeWidgetState extends State<SplashScreenWelcomeWidget>
                       children: [
                         Text(
                           'Lets Linik',
-                          style: FlutterFlowTheme.title1.override(
-                            fontFamily: 'Winlove',
-                            fontSize: 32,
-                            useGoogleFonts: false,
-                          ),
+                          style: FlutterFlowTheme.of(context).title1.override(
+                                fontFamily: 'Winlove',
+                                fontSize: 32,
+                                useGoogleFonts: false,
+                              ),
                         ),
                       ],
                     ).animated([animationsMap['rowOnPageLoadAnimation1']]),
@@ -150,7 +150,7 @@ class _SplashScreenWelcomeWidgetState extends State<SplashScreenWelcomeWidget>
                           child: Text(
                             'Welcome! Enter the code on our invitation in order to access the app.',
                             textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.subtitle1,
+                            style: FlutterFlowTheme.of(context).subtitle1,
                           ),
                         ),
                       ],
@@ -161,38 +161,41 @@ class _SplashScreenWelcomeWidgetState extends State<SplashScreenWelcomeWidget>
                         controller: emailTextController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelStyle: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'Cormorant Garamond',
-                            fontSize: 16,
-                          ),
+                          labelStyle:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Cormorant Garamond',
+                                    fontSize: 16,
+                                  ),
                           hintText: 'Your Email',
-                          hintStyle: FlutterFlowTheme.title3.override(
-                            fontFamily: 'Open Sans',
-                            color: FlutterFlowTheme.grayIcon,
-                          ),
+                          hintStyle: FlutterFlowTheme.of(context)
+                              .title3
+                              .override(
+                                fontFamily: 'Open Sans',
+                                color: FlutterFlowTheme.of(context).grayIcon,
+                              ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.lightLines,
+                              color: FlutterFlowTheme.of(context).lightLines,
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.lightLines,
+                              color: FlutterFlowTheme.of(context).lightLines,
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           filled: true,
-                          fillColor: FlutterFlowTheme.lightText,
+                          fillColor: FlutterFlowTheme.of(context).lightText,
                           contentPadding:
                               EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
                         ),
-                        style: FlutterFlowTheme.title3.override(
-                          fontFamily: 'Open Sans',
-                          color: Colors.black,
-                        ),
+                        style: FlutterFlowTheme.of(context).title3.override(
+                              fontFamily: 'Open Sans',
+                              color: Colors.black,
+                            ),
                         textAlign: TextAlign.center,
                         keyboardType: TextInputType.emailAddress,
                       ),
@@ -203,31 +206,34 @@ class _SplashScreenWelcomeWidgetState extends State<SplashScreenWelcomeWidget>
                         controller: passwordController,
                         obscureText: !passwordVisibility,
                         decoration: InputDecoration(
-                          labelStyle: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'Cormorant Garamond',
-                            fontSize: 16,
-                          ),
+                          labelStyle:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Cormorant Garamond',
+                                    fontSize: 16,
+                                  ),
                           hintText: 'Passcode',
-                          hintStyle: FlutterFlowTheme.title3.override(
-                            fontFamily: 'Open Sans',
-                            color: FlutterFlowTheme.grayIcon,
-                          ),
+                          hintStyle: FlutterFlowTheme.of(context)
+                              .title3
+                              .override(
+                                fontFamily: 'Open Sans',
+                                color: FlutterFlowTheme.of(context).grayIcon,
+                              ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.lightLines,
+                              color: FlutterFlowTheme.of(context).lightLines,
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.lightLines,
+                              color: FlutterFlowTheme.of(context).lightLines,
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           filled: true,
-                          fillColor: FlutterFlowTheme.lightText,
+                          fillColor: FlutterFlowTheme.of(context).lightText,
                           contentPadding:
                               EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
                           suffixIcon: InkWell(
@@ -238,15 +244,15 @@ class _SplashScreenWelcomeWidgetState extends State<SplashScreenWelcomeWidget>
                               passwordVisibility
                                   ? Icons.visibility_outlined
                                   : Icons.visibility_off_outlined,
-                              color: FlutterFlowTheme.grayIcon,
+                              color: FlutterFlowTheme.of(context).grayIcon,
                               size: 24,
                             ),
                           ),
                         ),
-                        style: FlutterFlowTheme.title3.override(
-                          fontFamily: 'Open Sans',
-                          color: Colors.black,
-                        ),
+                        style: FlutterFlowTheme.of(context).title3.override(
+                              fontFamily: 'Open Sans',
+                              color: Colors.black,
+                            ),
                         textAlign: TextAlign.center,
                         keyboardType: TextInputType.visiblePassword,
                       ),
@@ -258,14 +264,16 @@ class _SplashScreenWelcomeWidgetState extends State<SplashScreenWelcomeWidget>
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                           child: FlutterFlowIconButton(
-                            borderColor: FlutterFlowTheme.lightLines,
+                            borderColor:
+                                FlutterFlowTheme.of(context).lightLines,
                             borderRadius: 30,
                             borderWidth: 2,
                             buttonSize: 44,
-                            fillColor: FlutterFlowTheme.pageBackground,
+                            fillColor:
+                                FlutterFlowTheme.of(context).pageBackground,
                             icon: Icon(
                               Icons.person_outlined,
-                              color: FlutterFlowTheme.primaryColor,
+                              color: FlutterFlowTheme.of(context).primaryColor,
                               size: 24,
                             ),
                             onPressed: () async {
@@ -314,11 +322,14 @@ class _SplashScreenWelcomeWidgetState extends State<SplashScreenWelcomeWidget>
                             options: FFButtonOptions(
                               width: 230,
                               height: 50,
-                              color: FlutterFlowTheme.primaryColor,
-                              textStyle: FlutterFlowTheme.title3.override(
-                                fontFamily: 'Open Sans',
-                                color: FlutterFlowTheme.lightText,
-                              ),
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .title3
+                                  .override(
+                                    fontFamily: 'Open Sans',
+                                    color:
+                                        FlutterFlowTheme.of(context).lightText,
+                                  ),
                               elevation: 3,
                               borderSide: BorderSide(
                                 color: Colors.transparent,

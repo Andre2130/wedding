@@ -93,10 +93,10 @@ class _CreateEventPageWidgetState extends State<CreateEventPageWidget>
                         children: [
                           Text(
                             'Create Event',
-                            style: FlutterFlowTheme.title2.override(
-                              fontFamily: 'Poppins',
-                              fontSize: 20,
-                            ),
+                            style: FlutterFlowTheme.of(context).title2.override(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 20,
+                                ),
                           ),
                           FlutterFlowIconButton(
                             borderColor: Colors.transparent,
@@ -105,7 +105,7 @@ class _CreateEventPageWidgetState extends State<CreateEventPageWidget>
                             buttonSize: 44,
                             icon: Icon(
                               Icons.close_rounded,
-                              color: FlutterFlowTheme.grayIcon,
+                              color: FlutterFlowTheme.of(context).grayIcon,
                               size: 24,
                             ),
                             onPressed: () async {
@@ -126,34 +126,43 @@ class _CreateEventPageWidgetState extends State<CreateEventPageWidget>
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Event Name',
-                                labelStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Cormorant Garamond',
-                                  color: FlutterFlowTheme.grayIcon,
-                                ),
-                                hintStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Cormorant Garamond',
-                                  color: FlutterFlowTheme.grayIcon,
-                                ),
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Cormorant Garamond',
+                                      color:
+                                          FlutterFlowTheme.of(context).grayIcon,
+                                    ),
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Cormorant Garamond',
+                                      color:
+                                          FlutterFlowTheme.of(context).grayIcon,
+                                    ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: FlutterFlowTheme.lightLines,
+                                    color:
+                                        FlutterFlowTheme.of(context).lightLines,
                                     width: 1,
                                   ),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: FlutterFlowTheme.lightLines,
+                                    color:
+                                        FlutterFlowTheme.of(context).lightLines,
                                     width: 1,
                                   ),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 filled: true,
-                                fillColor: FlutterFlowTheme.lightText,
+                                fillColor:
+                                    FlutterFlowTheme.of(context).lightText,
                                 contentPadding: EdgeInsetsDirectional.fromSTEB(
                                     20, 24, 20, 24),
                               ),
-                              style: FlutterFlowTheme.bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyText1,
                               textAlign: TextAlign.start,
                             ),
                           ),
@@ -171,34 +180,43 @@ class _CreateEventPageWidgetState extends State<CreateEventPageWidget>
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Description',
-                                labelStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Cormorant Garamond',
-                                  color: FlutterFlowTheme.grayIcon,
-                                ),
-                                hintStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Cormorant Garamond',
-                                  color: FlutterFlowTheme.grayIcon,
-                                ),
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Cormorant Garamond',
+                                      color:
+                                          FlutterFlowTheme.of(context).grayIcon,
+                                    ),
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Cormorant Garamond',
+                                      color:
+                                          FlutterFlowTheme.of(context).grayIcon,
+                                    ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: FlutterFlowTheme.lightLines,
+                                    color:
+                                        FlutterFlowTheme.of(context).lightLines,
                                     width: 1,
                                   ),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: FlutterFlowTheme.lightLines,
+                                    color:
+                                        FlutterFlowTheme.of(context).lightLines,
                                     width: 1,
                                   ),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 filled: true,
-                                fillColor: FlutterFlowTheme.lightText,
+                                fillColor:
+                                    FlutterFlowTheme.of(context).lightText,
                                 contentPadding: EdgeInsetsDirectional.fromSTEB(
                                     20, 24, 20, 24),
                               ),
-                              style: FlutterFlowTheme.bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyText1,
                               textAlign: TextAlign.start,
                               keyboardType: TextInputType.multiline,
                             ),
@@ -214,10 +232,11 @@ class _CreateEventPageWidgetState extends State<CreateEventPageWidget>
                             setState(() => categoriesValue = val),
                         width: 330,
                         height: 50,
-                        textStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Cormorant Garamond',
-                          color: Colors.black,
-                        ),
+                        textStyle:
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Cormorant Garamond',
+                                  color: Colors.black,
+                                ),
                         hintText: 'Please select...',
                         fillColor: Colors.white,
                         elevation: 2,
@@ -246,10 +265,10 @@ class _CreateEventPageWidgetState extends State<CreateEventPageWidget>
                           width: double.infinity,
                           height: 60,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.lightText,
+                            color: FlutterFlowTheme.of(context).lightText,
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(
-                              color: FlutterFlowTheme.lightLines,
+                              color: FlutterFlowTheme.of(context).lightLines,
                               width: 1,
                             ),
                           ),
@@ -265,14 +284,15 @@ class _CreateEventPageWidgetState extends State<CreateEventPageWidget>
                                     dateTimeFormat('M/d h:mm a', datePicked1),
                                     'Choose Date',
                                   ),
-                                  style: FlutterFlowTheme.bodyText1,
+                                  style: FlutterFlowTheme.of(context).bodyText1,
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       4, 0, 0, 0),
                                   child: Text(
                                     dateTimeFormat('jm', datePicked1),
-                                    style: FlutterFlowTheme.bodyText1,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
                                   ),
                                 ),
                               ],
@@ -299,10 +319,10 @@ class _CreateEventPageWidgetState extends State<CreateEventPageWidget>
                           width: double.infinity,
                           height: 60,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.lightText,
+                            color: FlutterFlowTheme.of(context).lightText,
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(
-                              color: FlutterFlowTheme.lightLines,
+                              color: FlutterFlowTheme.of(context).lightLines,
                               width: 1,
                             ),
                           ),
@@ -318,14 +338,15 @@ class _CreateEventPageWidgetState extends State<CreateEventPageWidget>
                                     dateTimeFormat('M/d h:mm a', datePicked2),
                                     'Choose Date',
                                   ),
-                                  style: FlutterFlowTheme.bodyText1,
+                                  style: FlutterFlowTheme.of(context).bodyText1,
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       4, 0, 0, 0),
                                   child: Text(
                                     dateTimeFormat('jm', datePicked2),
-                                    style: FlutterFlowTheme.bodyText1,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
                                   ),
                                 ),
                               ],
@@ -352,10 +373,10 @@ class _CreateEventPageWidgetState extends State<CreateEventPageWidget>
                           width: double.infinity,
                           height: 60,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.lightText,
+                            color: FlutterFlowTheme.of(context).lightText,
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(
-                              color: FlutterFlowTheme.lightLines,
+                              color: FlutterFlowTheme.of(context).lightLines,
                               width: 1,
                             ),
                           ),
@@ -388,7 +409,7 @@ class _CreateEventPageWidgetState extends State<CreateEventPageWidget>
                                     ),
                                   ),
                                 ),
-                                style: FlutterFlowTheme.bodyText1,
+                                style: FlutterFlowTheme.of(context).bodyText1,
                                 textAlign: TextAlign.center,
                               ),
                               TextFormField(
@@ -417,7 +438,7 @@ class _CreateEventPageWidgetState extends State<CreateEventPageWidget>
                                     ),
                                   ),
                                 ),
-                                style: FlutterFlowTheme.bodyText1,
+                                style: FlutterFlowTheme.of(context).bodyText1,
                               ),
                             ],
                           ),
@@ -516,11 +537,13 @@ class _CreateEventPageWidgetState extends State<CreateEventPageWidget>
                         options: FFButtonOptions(
                           width: 290,
                           height: 50,
-                          color: FlutterFlowTheme.primaryColor,
-                          textStyle: FlutterFlowTheme.title3.override(
-                            fontFamily: 'Open Sans',
-                            color: FlutterFlowTheme.lightText,
-                          ),
+                          color: FlutterFlowTheme.of(context).primaryColor,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .title3
+                              .override(
+                                fontFamily: 'Open Sans',
+                                color: FlutterFlowTheme.of(context).lightText,
+                              ),
                           elevation: 3,
                           borderSide: BorderSide(
                             color: Colors.transparent,

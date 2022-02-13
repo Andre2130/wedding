@@ -31,7 +31,7 @@ class _ProgramSectionWidgetState extends State<ProgramSectionWidget> {
             children: [
               Text(
                 widget.title,
-                style: FlutterFlowTheme.subtitle2,
+                style: FlutterFlowTheme.of(context).subtitle2,
               ),
             ],
           ),
@@ -46,11 +46,11 @@ class _ProgramSectionWidgetState extends State<ProgramSectionWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
                   child: Text(
                     widget.body,
-                    style: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Cormorant Garamond',
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Cormorant Garamond',
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
                   ),
                 ),
               ),
@@ -62,7 +62,7 @@ class _ProgramSectionWidgetState extends State<ProgramSectionWidget> {
           thickness: 1,
           indent: 12,
           endIndent: 12,
-          color: FlutterFlowTheme.lightLines,
+          color: FlutterFlowTheme.of(context).lightLines,
         ),
       ],
     );

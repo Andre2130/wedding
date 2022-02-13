@@ -65,7 +65,7 @@ class _MessgeDetailsWidgetState extends State<MessgeDetailsWidget> {
           buttonSize: 60,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: FlutterFlowTheme.grayIcon,
+            color: FlutterFlowTheme.of(context).grayIcon,
             size: 30,
           ),
           onPressed: () async {
@@ -74,10 +74,10 @@ class _MessgeDetailsWidgetState extends State<MessgeDetailsWidget> {
         ),
         title: Text(
           widget.chatUser.displayName,
-          style: FlutterFlowTheme.title2.override(
-            fontFamily: 'Poppins',
-            fontSize: 18,
-          ),
+          style: FlutterFlowTheme.of(context).title2.override(
+                fontFamily: 'Poppins',
+                fontSize: 18,
+              ),
         ),
         actions: [],
         centerTitle: false,
@@ -96,14 +96,14 @@ class _MessgeDetailsWidgetState extends State<MessgeDetailsWidget> {
                   backgroundColor: Colors.black,
                   timeDisplaySetting: TimeDisplaySetting.visibleOnTap,
                   currentUserBoxDecoration: BoxDecoration(
-                    color: FlutterFlowTheme.lightLines,
+                    color: FlutterFlowTheme.of(context).lightLines,
                     border: Border.all(
                       color: Colors.transparent,
                     ),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   otherUsersBoxDecoration: BoxDecoration(
-                    color: FlutterFlowTheme.primaryColor,
+                    color: FlutterFlowTheme.of(context).primaryColor,
                     border: Border.all(
                       color: Colors.transparent,
                     ),
@@ -130,12 +130,12 @@ class _MessgeDetailsWidgetState extends State<MessgeDetailsWidget> {
                   ),
                   inputTextStyle: GoogleFonts.getFont(
                     'Cormorant Garamond',
-                    color: FlutterFlowTheme.tertiaryColor,
+                    color: FlutterFlowTheme.of(context).tertiaryColor,
                     fontWeight: FontWeight.normal,
                     fontSize: 16,
                   ),
                 )
-              : const Center(
+              : Center(
                   child: SizedBox(
                     width: 50,
                     height: 50,

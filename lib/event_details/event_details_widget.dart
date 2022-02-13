@@ -37,7 +37,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
           buttonSize: 60,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: FlutterFlowTheme.grayIcon,
+            color: FlutterFlowTheme.of(context).grayIcon,
             size: 30,
           ),
           onPressed: () async {
@@ -58,7 +58,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.lightText,
+                  color: FlutterFlowTheme.of(context).lightText,
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 5,
@@ -93,7 +93,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
                       child: Text(
                         widget.eventDetails.name,
-                        style: FlutterFlowTheme.title2,
+                        style: FlutterFlowTheme.of(context).title2,
                       ),
                     ),
                   ),
@@ -111,15 +111,15 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                     children: [
                       Text(
                         widget.eventDetails.address,
-                        style: FlutterFlowTheme.subtitle1.override(
-                          fontFamily: 'Cormorant Garamond',
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                        ),
+                        style: FlutterFlowTheme.of(context).subtitle1.override(
+                              fontFamily: 'Cormorant Garamond',
+                              fontSize: 24,
+                              fontWeight: FontWeight.w600,
+                            ),
                       ),
                       Text(
                         widget.eventDetails.categories.length.toString(),
-                        style: FlutterFlowTheme.subtitle2,
+                        style: FlutterFlowTheme.of(context).subtitle2,
                       ),
                     ],
                   ),
@@ -136,10 +136,10 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
                     child: Text(
                       'WHEN',
-                      style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Cormorant Garamond',
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Cormorant Garamond',
+                            fontWeight: FontWeight.w500,
+                          ),
                     ),
                   ),
                 ],
@@ -155,20 +155,20 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
                     child: Text(
                       dateTimeFormat('yMd', widget.eventDetails.date),
-                      style: FlutterFlowTheme.subtitle2.override(
-                        fontFamily: 'Cormorant Garamond',
-                        color: FlutterFlowTheme.secondaryColor,
-                        fontSize: 24,
-                      ),
+                      style: FlutterFlowTheme.of(context).subtitle2.override(
+                            fontFamily: 'Cormorant Garamond',
+                            color: FlutterFlowTheme.of(context).secondaryColor,
+                            fontSize: 24,
+                          ),
                     ),
                   ),
                   Text(
                     dateTimeFormat('EEEE', widget.eventDetails.time),
                     textAlign: TextAlign.end,
-                    style: FlutterFlowTheme.title3.override(
-                      fontFamily: 'Open Sans',
-                      color: FlutterFlowTheme.tertiaryColor,
-                    ),
+                    style: FlutterFlowTheme.of(context).title3.override(
+                          fontFamily: 'Open Sans',
+                          color: FlutterFlowTheme.of(context).tertiaryColor,
+                        ),
                   ),
                 ],
               ),
@@ -182,17 +182,17 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                 text: 'Get Directions',
                 icon: Icon(
                   Icons.directions_car_sharp,
-                  color: FlutterFlowTheme.lightText,
+                  color: FlutterFlowTheme.of(context).lightText,
                   size: 15,
                 ),
                 options: FFButtonOptions(
                   width: 330,
                   height: 50,
-                  color: FlutterFlowTheme.tertiaryColor,
-                  textStyle: FlutterFlowTheme.subtitle2.override(
-                    fontFamily: 'Cormorant Garamond',
-                    color: Colors.white,
-                  ),
+                  color: FlutterFlowTheme.of(context).tertiaryColor,
+                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                        fontFamily: 'Cormorant Garamond',
+                        color: Colors.white,
+                      ),
                   elevation: 2,
                   borderSide: BorderSide(
                     color: Colors.transparent,

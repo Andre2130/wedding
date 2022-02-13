@@ -24,7 +24,7 @@ class _TopCardWidgetState extends State<TopCardWidget> {
       width: double.infinity,
       height: 170,
       decoration: BoxDecoration(
-        color: FlutterFlowTheme.pageBackground,
+        color: FlutterFlowTheme.of(context).pageBackground,
         image: DecorationImage(
           fit: BoxFit.cover,
           image: Image.asset(
@@ -45,10 +45,10 @@ class _TopCardWidgetState extends State<TopCardWidget> {
                   borderRadius: 30,
                   borderWidth: 1,
                   buttonSize: 44,
-                  fillColor: FlutterFlowTheme.lightText,
+                  fillColor: FlutterFlowTheme.of(context).lightText,
                   icon: Icon(
                     Icons.arrow_back_rounded,
-                    color: FlutterFlowTheme.grayIcon,
+                    color: FlutterFlowTheme.of(context).grayIcon,
                     size: 24,
                   ),
                   onPressed: () async {
@@ -59,7 +59,7 @@ class _TopCardWidgetState extends State<TopCardWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                   child: Text(
                     widget.pageTitle,
-                    style: FlutterFlowTheme.title3,
+                    style: FlutterFlowTheme.of(context).title3,
                   ),
                 ),
               ],

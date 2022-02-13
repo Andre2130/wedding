@@ -1,63 +1,87 @@
+// ignore_for_file: overridden_fields, annotate_overrides
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-// ignore: avoid_classes_with_only_static_members
-class FlutterFlowTheme {
-  static const Color primaryColor = Color(0xFFEEB111);
-  static const Color secondaryColor = Color(0xFFBA8C10);
-  static const Color tertiaryColor = Color(0xFF14181B);
+abstract class FlutterFlowTheme {
+  static FlutterFlowTheme of(BuildContext context) => LightModeTheme();
 
-  static const Color darkText = Color(0xFFFFFFFF);
-  static const Color pageBackground = Color(0xFFF1F4F8);
-  static const Color grayIcon = Color(0xFF95A1AC);
-  static const Color lightText = Color(0xFFFFFFFF);
-  static const Color darkLines = Color(0xFF262D34);
-  static const Color lightLines = Color(0xFFDEE2E7);
+  Color primaryColor;
+  Color secondaryColor;
+  Color tertiaryColor;
+  Color alternate;
+  Color primaryBackground;
+  Color secondaryBackground;
+  Color primaryText;
+  Color secondaryText;
 
-  String primaryFontFamily = 'Poppins';
-  String secondaryFontFamily = 'Roboto';
-  static TextStyle get title1 => GoogleFonts.getFont(
+  Color darkText;
+  Color pageBackground;
+  Color grayIcon;
+  Color lightText;
+  Color darkLines;
+  Color lightLines;
+
+  TextStyle get title1 => GoogleFonts.getFont(
         'Montserrat',
         color: darkText,
         fontWeight: FontWeight.w500,
         fontSize: 32,
       );
-  static TextStyle get title2 => GoogleFonts.getFont(
+  TextStyle get title2 => GoogleFonts.getFont(
         'Poppins',
         color: darkText,
         fontWeight: FontWeight.w500,
         fontSize: 24,
       );
-  static TextStyle get title3 => GoogleFonts.getFont(
+  TextStyle get title3 => GoogleFonts.getFont(
         'Open Sans',
         color: darkText,
         fontWeight: FontWeight.w500,
         fontSize: 24,
       );
-  static TextStyle get subtitle1 => GoogleFonts.getFont(
+  TextStyle get subtitle1 => GoogleFonts.getFont(
         'Cormorant Garamond',
         color: darkText,
         fontWeight: FontWeight.w500,
         fontSize: 18,
       );
-  static TextStyle get subtitle2 => GoogleFonts.getFont(
+  TextStyle get subtitle2 => GoogleFonts.getFont(
         'Cormorant Garamond',
         color: primaryColor,
         fontWeight: FontWeight.w500,
         fontSize: 18,
       );
-  static TextStyle get bodyText1 => GoogleFonts.getFont(
+  TextStyle get bodyText1 => GoogleFonts.getFont(
         'Cormorant Garamond',
         color: darkLines,
         fontWeight: FontWeight.normal,
         fontSize: 16,
       );
-  static TextStyle get bodyText2 => GoogleFonts.getFont(
+  TextStyle get bodyText2 => GoogleFonts.getFont(
         'Dancing Script',
         color: grayIcon,
         fontWeight: FontWeight.normal,
         fontSize: 16,
       );
+}
+
+class LightModeTheme extends FlutterFlowTheme {
+  Color primaryColor = const Color(0xFFEEB111);
+  Color secondaryColor = const Color(0xFFBA8C10);
+  Color tertiaryColor = const Color(0xFF14181B);
+  Color alternate = const Color(0x00000000);
+  Color primaryBackground = const Color(0x00000000);
+  Color secondaryBackground = const Color(0x00000000);
+  Color primaryText = const Color(0x00000000);
+  Color secondaryText = const Color(0x00000000);
+
+  Color darkText = Color(0xFFFFFFFF);
+  Color pageBackground = Color(0xFFF1F4F8);
+  Color grayIcon = Color(0xFF95A1AC);
+  Color lightText = Color(0xFFFFFFFF);
+  Color darkLines = Color(0xFF262D34);
+  Color lightLines = Color(0xFFDEE2E7);
 }
 
 extension TextStyleHelper on TextStyle {

@@ -48,7 +48,7 @@ class _MainHeroWidgetState extends State<MainHeroWidget>
       width: double.infinity,
       height: 370,
       decoration: BoxDecoration(
-        color: FlutterFlowTheme.lightText,
+        color: FlutterFlowTheme.of(context).lightText,
         boxShadow: [
           BoxShadow(
             blurRadius: 5,

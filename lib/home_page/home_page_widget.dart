@@ -25,6 +25,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
   PageController pageViewController;
   LatLng googleMapsCenter;
   Completer<GoogleMapController> googleMapsController;
+  LatLng currentUserLocationValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final animationsMap = {
     'containerOnPageLoadAnimation': AnimationInfo(
@@ -123,14 +124,28 @@ class _HomePageWidgetState extends State<HomePageWidget>
       start: DateTime.now().startOfDay,
       end: DateTime.now().endOfDay,
     );
+    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
+        .then((loc) => setState(() => currentUserLocationValue = loc));
   }
 
   @override
   Widget build(BuildContext context) {
+    if (currentUserLocationValue == null) {
+      return Center(
+        child: SizedBox(
+          width: 50,
+          height: 50,
+          child: SpinKitPumpingHeart(
+            color: Color(0xFFEEB111),
+            size: 50,
+          ),
+        ),
+      );
+    }
     return Scaffold(
       key: scaffoldKey,
       resizeToAvoidBottomInset: false,
-      backgroundColor: FlutterFlowTheme.pageBackground,
+      backgroundColor: FlutterFlowTheme.of(context).pageBackground,
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -185,17 +200,23 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           children: [
                                             Text(
                                               'Lets Link\'s First Event',
-                                              style: FlutterFlowTheme.title1,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .title1,
                                             ),
                                             Text(
                                               'Come join us for a night of fun!',
-                                              style: FlutterFlowTheme.bodyText1
-                                                  .override(
-                                                fontFamily:
-                                                    'Cormorant Garamond',
-                                                color:
-                                                    FlutterFlowTheme.darkText,
-                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily:
+                                                            'Cormorant Garamond',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .darkText,
+                                                      ),
                                             ),
                                           ],
                                         ),
@@ -227,8 +248,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       Align(
                                         alignment: AlignmentDirectional(0, 0),
                                         child: FlutterFlowCalendar(
-                                          color: FlutterFlowTheme.primaryColor,
-                                          iconColor: FlutterFlowTheme.darkText,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                          iconColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .darkText,
                                           weekFormat: true,
                                           weekStartsMonday: false,
                                           initialDate: getCurrentTimestamp,
@@ -239,11 +263,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           },
                                           titleStyle: TextStyle(),
                                           dayOfWeekStyle: TextStyle(
-                                            color:
-                                                FlutterFlowTheme.primaryColor,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryColor,
                                           ),
                                           dateStyle: TextStyle(
-                                            color: FlutterFlowTheme.darkText,
+                                            color: FlutterFlowTheme.of(context)
+                                                .darkText,
                                           ),
                                           selectedDateStyle: TextStyle(),
                                           inactiveDateStyle: TextStyle(),
@@ -266,7 +291,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                         alignment: AlignmentDirectional(0, 0),
                                         child: Text(
                                           'Night Life',
-                                          style: FlutterFlowTheme.title1,
+                                          style: FlutterFlowTheme.of(context)
+                                              .title1,
                                         ),
                                       ),
                                       Align(
@@ -295,8 +321,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               onCameraIdle: (latLng) =>
                                                   googleMapsCenter = latLng,
                                               initialLocation:
-                                                  googleMapsCenter ??= LatLng(
-                                                      13.106061, -59.613158),
+                                                  googleMapsCenter ??=
+                                                      currentUserLocationValue,
                                               markerColor:
                                                   GoogleMarkerColor.violet,
                                               mapType: MapType.normal,
@@ -343,8 +369,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                     dotWidth: 16,
                                     dotHeight: 16,
                                     dotColor: Color(0xFF9E9E9E),
-                                    activeDotColor:
-                                        FlutterFlowTheme.primaryColor,
+                                    activeDotColor: FlutterFlowTheme.of(context)
+                                        .primaryColor,
                                     paintStyle: PaintingStyle.fill,
                                   ),
                                 ),
@@ -362,13 +388,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                   children: [
                     Text(
                       'Lets Link',
-                      style: FlutterFlowTheme.title1.override(
-                        fontFamily: 'Winlove',
-                        color: FlutterFlowTheme.primaryColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.normal,
-                        useGoogleFonts: false,
-                      ),
+                      style: FlutterFlowTheme.of(context).title1.override(
+                            fontFamily: 'Winlove',
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.normal,
+                            useGoogleFonts: false,
+                          ),
                     ),
                   ],
                 ).animated([animationsMap['rowOnPageLoadAnimation2']]),
@@ -380,7 +406,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     children: [
                       Text(
                         'Top Catigories',
-                        style: FlutterFlowTheme.subtitle2,
+                        style: FlutterFlowTheme.of(context).subtitle2,
                       ),
                     ],
                   ).animated([animationsMap['rowOnPageLoadAnimation3']]),
@@ -397,7 +423,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             alignment: AlignmentDirectional(0, 0),
                             child: Text(
                               'Hello World',
-                              style: FlutterFlowTheme.bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyText1,
                             ),
                           ),
                           Align(
@@ -425,7 +451,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             child: Text(
                               'Night Life',
                               textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.title3,
+                              style: FlutterFlowTheme.of(context).title3,
                             ),
                           ),
                         ],
@@ -445,7 +471,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             alignment: AlignmentDirectional(0, 0),
                             child: Text(
                               'Sports',
-                              style: FlutterFlowTheme.title3,
+                              style: FlutterFlowTheme.of(context).title3,
                             ),
                           ),
                         ],
@@ -474,7 +500,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             alignment: AlignmentDirectional(0, 0),
                             child: Text(
                               'Education',
-                              style: FlutterFlowTheme.title3,
+                              style: FlutterFlowTheme.of(context).title3,
                             ),
                           ),
                         ],
@@ -494,7 +520,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             alignment: AlignmentDirectional(0, 0),
                             child: Text(
                               'Date Night',
-                              style: FlutterFlowTheme.title3,
+                              style: FlutterFlowTheme.of(context).title3,
                             ),
                           ),
                         ],
