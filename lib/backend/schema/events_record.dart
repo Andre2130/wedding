@@ -57,6 +57,37 @@ abstract class EventsRecord
       .get()
       .then((s) => serializers.deserializeWith(serializer, serializedData(s)));
 
+  static EventsRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
+      EventsRecord(
+        (c) => c
+          ..name = snapshot.data['name']
+          ..time = safeGet(
+              () => DateTime.fromMillisecondsSinceEpoch(snapshot.data['time']))
+          ..categories = safeGet(() => ListBuilder(snapshot.data['categories']))
+          ..date = safeGet(
+              () => DateTime.fromMillisecondsSinceEpoch(snapshot.data['date']))
+          ..description = snapshot.data['description']
+          ..photos = safeGet(() => ListBuilder(snapshot.data['photos']))
+          ..mainImage = snapshot.data['mainImage']
+          ..address = snapshot.data['address']
+          ..reference = EventsRecord.collection.doc(snapshot.objectID),
+      );
+
+  static Future<List<EventsRecord>> search(
+          {String term,
+          FutureOr<LatLng> location,
+          int maxResults,
+          double searchRadiusMeters}) =>
+      FFAlgoliaManager.instance
+          .algoliaQuery(
+            index: 'events',
+            term: term,
+            maxResults: maxResults,
+            location: location,
+            searchRadiusMeters: searchRadiusMeters,
+          )
+          .then((r) => r.map(fromAlgolia).toList());
+
   EventsRecord._();
   factory EventsRecord([void Function(EventsRecordBuilder) updates]) =
       _$EventsRecord;

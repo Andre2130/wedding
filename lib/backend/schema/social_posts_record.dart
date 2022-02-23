@@ -68,6 +68,39 @@ abstract class SocialPostsRecord
       .get()
       .then((s) => serializers.deserializeWith(serializer, serializedData(s)));
 
+  static SocialPostsRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
+      SocialPostsRecord(
+        (c) => c
+          ..postCreated = safeGet(() =>
+              DateTime.fromMillisecondsSinceEpoch(snapshot.data['postCreated']))
+          ..postImage = snapshot.data['postImage']
+          ..postVideo = snapshot.data['postVideo']
+          ..postDescription = snapshot.data['postDescription']
+          ..postUser = safeGet(() => toRef(snapshot.data['postUser']))
+          ..postDisplayName = snapshot.data['postDisplayName']
+          ..postUserImage = snapshot.data['postUserImage']
+          ..likes = safeGet(
+              () => ListBuilder(snapshot.data['likes'].map((s) => toRef(s))))
+          ..numLikes = snapshot.data['num_likes']
+          ..numComments = snapshot.data['num_comments']
+          ..reference = SocialPostsRecord.collection.doc(snapshot.objectID),
+      );
+
+  static Future<List<SocialPostsRecord>> search(
+          {String term,
+          FutureOr<LatLng> location,
+          int maxResults,
+          double searchRadiusMeters}) =>
+      FFAlgoliaManager.instance
+          .algoliaQuery(
+            index: 'socialPosts',
+            term: term,
+            maxResults: maxResults,
+            location: location,
+            searchRadiusMeters: searchRadiusMeters,
+          )
+          .then((r) => r.map(fromAlgolia).toList());
+
   SocialPostsRecord._();
   factory SocialPostsRecord([void Function(SocialPostsRecordBuilder) updates]) =
       _$SocialPostsRecord;

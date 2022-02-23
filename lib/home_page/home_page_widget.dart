@@ -1,4 +1,3 @@
-import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_calendar.dart';
@@ -297,9 +296,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       ),
                                       Align(
                                         alignment: AlignmentDirectional(0, 0),
-                                        child: StreamBuilder<GuestsRecord>(
-                                          stream: GuestsRecord.getDocument(
-                                              currentUserReference),
+                                        child: FutureBuilder<List<CityRecord>>(
+                                          future: CityRecord.search(
+                                            location: getCurrentUserLocation(
+                                                defaultLocation: LatLng(
+                                                    37.4298229, -122.1735655)),
+                                            searchRadiusMeters: 30,
+                                          ),
                                           builder: (context, snapshot) {
                                             // Customize what your widget looks like when it's loading.
                                             if (!snapshot.hasData) {
@@ -314,7 +317,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 ),
                                               );
                                             }
-                                            final googleMapGuestsRecord =
+                                            List<CityRecord>
+                                                googleMapCityRecordList =
                                                 snapshot.data;
                                             return FlutterFlowGoogleMap(
                                               controller: googleMapsController,
@@ -323,6 +327,31 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               initialLocation:
                                                   googleMapsCenter ??=
                                                       currentUserLocationValue,
+                                              markers:
+                                                  (googleMapCityRecordList ??
+                                                          [])
+                                                      .map(
+                                                        (googleMapCityRecord) =>
+                                                            FlutterFlowMarker(
+                                                          googleMapCityRecord
+                                                              .reference.path,
+                                                          googleMapCityRecord
+                                                              .location,
+                                                          () async {
+                                                            await Navigator
+                                                                .push(
+                                                              context,
+                                                              MaterialPageRoute(
+                                                                builder: (context) =>
+                                                                    NavBarPage(
+                                                                        initialPage:
+                                                                            'eventsPage'),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ),
+                                                      )
+                                                      .toList(),
                                               markerColor:
                                                   GoogleMarkerColor.violet,
                                               mapType: MapType.normal,

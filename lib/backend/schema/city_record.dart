@@ -33,6 +33,31 @@ abstract class CityRecord implements Built<CityRecord, CityRecordBuilder> {
       .get()
       .then((s) => serializers.deserializeWith(serializer, serializedData(s)));
 
+  static CityRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) => CityRecord(
+        (c) => c
+          ..location = safeGet(() => LatLng(
+                snapshot.data['_geoloc']['lat'],
+                snapshot.data['_geoloc']['lng'],
+              ))
+          ..cityName = snapshot.data['cityName']
+          ..reference = CityRecord.collection.doc(snapshot.objectID),
+      );
+
+  static Future<List<CityRecord>> search(
+          {String term,
+          FutureOr<LatLng> location,
+          int maxResults,
+          double searchRadiusMeters}) =>
+      FFAlgoliaManager.instance
+          .algoliaQuery(
+            index: 'city',
+            term: term,
+            maxResults: maxResults,
+            location: location,
+            searchRadiusMeters: searchRadiusMeters,
+          )
+          .then((r) => r.map(fromAlgolia).toList());
+
   CityRecord._();
   factory CityRecord([void Function(CityRecordBuilder) updates]) = _$CityRecord;
 

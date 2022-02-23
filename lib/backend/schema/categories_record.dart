@@ -40,6 +40,31 @@ abstract class CategoriesRecord
       .get()
       .then((s) => serializers.deserializeWith(serializer, serializedData(s)));
 
+  static CategoriesRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
+      CategoriesRecord(
+        (c) => c
+          ..name = snapshot.data['name']
+          ..array = safeGet(
+              () => ListBuilder(snapshot.data['array'].map((s) => toRef(s))))
+          ..test = safeGet(() => ListBuilder(snapshot.data['test']))
+          ..reference = CategoriesRecord.collection.doc(snapshot.objectID),
+      );
+
+  static Future<List<CategoriesRecord>> search(
+          {String term,
+          FutureOr<LatLng> location,
+          int maxResults,
+          double searchRadiusMeters}) =>
+      FFAlgoliaManager.instance
+          .algoliaQuery(
+            index: 'categories',
+            term: term,
+            maxResults: maxResults,
+            location: location,
+            searchRadiusMeters: searchRadiusMeters,
+          )
+          .then((r) => r.map(fromAlgolia).toList());
+
   CategoriesRecord._();
   factory CategoriesRecord([void Function(CategoriesRecordBuilder) updates]) =
       _$CategoriesRecord;

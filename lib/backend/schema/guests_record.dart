@@ -70,6 +70,38 @@ abstract class GuestsRecord
       .get()
       .then((s) => serializers.deserializeWith(serializer, serializedData(s)));
 
+  static GuestsRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
+      GuestsRecord(
+        (c) => c
+          ..guestName = snapshot.data['guestName']
+          ..rsvp = snapshot.data['rsvp']
+          ..email = snapshot.data['email']
+          ..displayName = snapshot.data['display_name']
+          ..photoUrl = snapshot.data['photo_url']
+          ..uid = snapshot.data['uid']
+          ..createdTime = safeGet(() => DateTime.fromMillisecondsSinceEpoch(
+              snapshot.data['created_time']))
+          ..phoneNumber = snapshot.data['phone_number']
+          ..admin = snapshot.data['admin']
+          ..profileComplete = snapshot.data['profileComplete']
+          ..reference = GuestsRecord.collection.doc(snapshot.objectID),
+      );
+
+  static Future<List<GuestsRecord>> search(
+          {String term,
+          FutureOr<LatLng> location,
+          int maxResults,
+          double searchRadiusMeters}) =>
+      FFAlgoliaManager.instance
+          .algoliaQuery(
+            index: 'guests',
+            term: term,
+            maxResults: maxResults,
+            location: location,
+            searchRadiusMeters: searchRadiusMeters,
+          )
+          .then((r) => r.map(fromAlgolia).toList());
+
   GuestsRecord._();
   factory GuestsRecord([void Function(GuestsRecordBuilder) updates]) =
       _$GuestsRecord;
